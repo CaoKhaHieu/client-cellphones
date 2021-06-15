@@ -1,0 +1,172 @@
+*{
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+    margin: 0 ;
+    padding: 0;
+}
+p{
+    margin: 0;
+}
+.hotsale-listproduct-product a{
+    text-decoration: none;
+}
+
+#hotsale{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.hotsale{
+    width: 80%;
+    margin: auto;
+    padding: 1rem 0;
+}
+.hotsale h2{
+    color: #d70018;
+    display: flex;
+    text-transform: uppercase;
+}
+
+
+
+/*              */
+
+.hotsale-listproduct{
+    display: flex;
+    overflow: hidden;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+.hotsale-listproduct-product{
+    position: relative;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    padding: 2rem 1rem;
+    border: 1px solid #eee;
+}
+.hotsale-listproduct-product-name{
+    height: 80px;
+}
+.hotsale-listproduct-product:hover{
+    box-sizing: border-box;
+    box-shadow: 0px 0px 5px -1px;
+    transition: 0.5s; 
+}
+
+.hotsale-listproduct-product img {
+    width: 150px;
+    height: 150px;
+}
+.hotsale-listproduct-product:hover img{
+    transform: scale(1.05);
+    transition: 0.5s;
+}
+.hotsale-listproduct-product p{
+    padding: 1rem 0;
+    font-weight: 700;
+    color: #222;
+    font-size: 16px;
+}
+.hotsale-listproduct-product .price{
+    display:flex;
+    justify-content: space-around;
+    line-height: 25px;
+}
+.hotsale-listproduct-product .price1{
+    color: #d70018;
+    font-weight: 700;
+    font-size: 16px;
+}
+.hotsale-listproduct-product .price2{
+    text-decoration: line-through;
+    font-size: 14px;
+    color: gray;
+}
+
+.discount{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #d70018;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.discount p{
+    color: white;
+}
+.buy{
+    margin-top: 20px;
+}
+.buy a{
+    padding: 7px 17px;
+    border-radius: 4px;
+    background: #d70018;
+    
+    color: white;
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button, .filter{
+    display: flex;
+    margin-top: 1rem;
+}
+.thapdencao, .caodenthap, .filter-type button, .filter-price button{
+    background: #d70018;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    margin-right: 1rem;
+    position: relative;
+}
+
+
+.filter ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+.filter li{
+    padding: 4px 12px;
+    border: 1px solid #eee;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.filter li:hover{
+    background: #d70018;
+    color: white;
+    transition: .5s
+}
+#priceStart, #priceEnd{
+    padding: 4px 10px;
+    margin-right: 1rem;
+}
+@media screen and (max-width: 800px) {
+    .hotsale{
+        width: 100%;
+        padding: 0 .5rem;
+    }
+    .hotsale-listproduct-product{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hotsale-listproduct-product img{
+        width: 100px;
+        height: 100px;
+    }
+}

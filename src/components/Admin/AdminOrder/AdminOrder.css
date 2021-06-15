@@ -1,0 +1,48 @@
+.order{
+    display: flex;
+    width: 90%;
+    margin: 1rem auto;
+    border: 1px solid #333;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+.list-order{
+    width: 100%;
+}
+.order-items, .totalPrice, .address, .user{
+    width: 100%;
+}
+.order-items-item{
+    display: flex;
+    border: 1px solid #eee;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.order-items-item img{
+    width: 100px;
+    height: 100px;
+}
+.order-items-item .qty{
+    font-weight: bolder;
+    padding: 1rem;
+    width: 100%;
+}
+.order-items-item .price{
+    font-weight: bolder;
+    color: red;
+    width: 100%;
+}
+.order-items-item .name{
+    width: 100%;
+}
+.order-items-item .img{
+    
+}
+
+.order .toatalPrice{
+    font-weight: bolder;
+    color: red;
+    padding: 0 1rem;
+}

@@ -1,0 +1,172 @@
+/* menu */
+*{
+    box-sizing: border-box;
+}
+.header{
+    width: 100%;
+    height: 60px;
+    background: #d70018;
+
+    /* position: fixed; */
+    z-index: 10000;
+}
+#menu {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+.logo{
+   flex-grow: 1;
+   display: flex;
+   justify-content: flex-start;
+}
+.logo span a{
+    font-size: 28px;
+    color: #fff;
+}
+.menu-list {
+    display: flex;
+}
+.menu-list li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-list li a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0rem 1rem;
+}
+.menu-list ul {
+    margin: 0;
+    padding: 0;
+}
+.search form input {
+   padding: .3rem 1rem;
+   outline: none;
+   border: none;
+}
+.search form button {
+    padding: .3rem 1rem;
+    margin: 0 .5rem;
+    outline: none;
+ }
+.shooping-cart{
+    position: relative;
+    font-size: 30px;
+}
+.count{
+    position: absolute;
+    width: 20px;
+    height: 22px;
+
+    background: white;
+    color: #d70018;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 100%;
+}
+/* search product */
+.SearchProduct{
+    display: flex;
+    position: relative;
+    margin: 0 30px;
+}
+#SearchProduct{
+    width: 700px;
+    height: 50px;
+    border: none;
+    outline: none;
+    padding: 0 20px;
+}
+.submit{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    line-height: 21px;
+    text-align: center;
+    background: #d70018;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 22px;
+}
+.close{
+    display: none;
+}
+.bar{
+    display: none;
+    cursor: pointer;
+}
+.line{
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 8px 0;
+}
+
+
+@media screen and (max-width: 800px){
+    #hidden{
+        display: none;
+    }
+    #menu{
+        width: 100%;
+        padding: 0 .3rem;
+    }
+    .logo{
+        flex-grow: 0;
+    }
+    .menu-list{
+        position: absolute;
+        top:0%;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+
+       
+        flex-direction: column;
+        background: black;
+        z-index: 11;
+        opacity: 0.9;
+        padding-top: 9rem;
+        margin-top: 60px;
+    }
+    .menu-list li{
+        padding: 1rem 0;
+    }
+    .menu-list a{
+        color: white;
+    }
+    .close{
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        cursor: pointer;
+        display: block;
+    }
+    .bar{
+        display: block;
+    }
+    .search{
+        padding: 0 1rem;
+        flex-grow: 1;
+    }
+    .search form{
+        display: flex;
+    }
+    .search form input {
+        width: 100%;
+     }
+}

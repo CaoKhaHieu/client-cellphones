@@ -1,0 +1,40 @@
+
+.login-page{
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,0%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.login-page input{
+    width: 100%;
+    outline: none;
+    border: 1px solid #eee;
+    padding: 1rem 2rem;
+    margin: 1rem;
+    font-size: 18px;
+}
+.login-page input[type="submit"] {
+    background: #d70018;
+    color: white;
+}
+
+@media screen and (max-width: 400px){
+    .login-page{
+        position: relative;
+        width: 100%;
+        padding: 1rem;
+    }
+    .form-order{
+        padding: 1rem;
+    }
+    .login-page .form input, textarea{
+        margin: 10px 0;
+    }
+
+}
