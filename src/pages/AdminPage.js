@@ -1,15 +1,19 @@
-import React from 'react';
-import Admin from '../components/Admin/Admin';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import AdminProduct from '../components/Admin/AdminProduct/AdminProduct';
-import AdminCreate from '../components/Admin/AdminProduct/AdminCreate';
-import AdminUpdate from '../components/Admin/AdminProduct/AdminUpdate';
-import AdminOrder from '../components/Admin/AdminOrder/AdminOrder'
-import AdminUser from '../components/Admin/AdminUser/AdminUser';
+import React from "react";
+import Admin from "../components/Admin/Admin";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import AdminProduct from "../components/Admin/AdminProduct/AdminProduct";
+// import AdminCreate from "../components/Admin/AdminProduct/AdminCreate";
+// import AdminUpdate from "../components/Admin/AdminProduct/AdminUpdate";
+// import AdminOrder from "../components/Admin/AdminOrder/AdminOrder";
+// import AdminUser from "../components/Admin/AdminUser/AdminUser";
+// import AppChat from "../components/Admin/AppChat/AppChat";
+
+import Sidebar from "../components/Admin/components/sidebar/Sidebar";
+import Routes from "../components/Admin/components/Routes";
 function AdminPage(props) {
-    return (
-        <div>
-            <Router>
+  return (
+    <div>
+      {/* <Router>
                 <Route path="/admin" exact>
                     <Admin></Admin>
                 </Route>
@@ -33,9 +37,14 @@ function AdminPage(props) {
                 <Route path="/admin/user" exact>
                     <AdminUser></AdminUser>
                 </Route>
-            </Router>
-        </div>
-    );
+                <Route path="/admin/chat" exact>
+                    <AppChat></AppChat>
+                </Route>
+            </Router> */}
+
+      <Admin></Admin>
+    </div>
+  );
 }
 
 export default AdminPage;

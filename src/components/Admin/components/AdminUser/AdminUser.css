@@ -1,0 +1,51 @@
+.admin-user span{
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+.admin-user-list{
+    background: white;
+    margin: 0 .5rem 0 1rem;
+    color: #6b6b6b;
+    padding: 1rem;
+
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+table{
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+}
+
+table th{
+    color: #6b6b6b;
+    font-size: 18px;
+    font-weight: 600;
+    background: #f9f9f9;
+    padding: .5rem 0;
+    min-width: 30px;
+}
+table td{
+    padding: .5rem 0;
+    font-size: 16px;
+}
+tr .delete-user{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+}
+tr .delete-user span{
+    border-radius: 50%;
+}
+tr .delete-user:hover{
+    background: rgb(223, 28, 28);
+    transition: .3s;
+}
+tr .delete-user:hover span{
+    color: white;
+}

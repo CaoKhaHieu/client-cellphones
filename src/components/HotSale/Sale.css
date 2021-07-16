@@ -44,9 +44,7 @@ p{
     padding: 2rem 1rem;
     border: 1px solid #eee;
 }
-.hotsale-listproduct-product-name{
-    height: 80px;
-}
+
 .hotsale-listproduct-product:hover{
     box-sizing: border-box;
     box-shadow: 0px 0px 5px -1px;
@@ -98,6 +96,7 @@ p{
 }
 .discount p{
     color: white;
+    margin: 0;
 }
 .buy{
     margin-top: 20px;
@@ -113,6 +112,11 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+@media only screen and (max-width: 900px) {
+    .hotsale-listproduct-producte{
+        width: 33.3%;
+    }
 }
 @media only screen and (max-width: 800px) {
     .hotsale{

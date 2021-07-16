@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios'
 import PropTypes from 'prop-types';
-
+import { formatPrice } from '../../untils';
 import './ShoppingCart.css'
 import ListProduct from './ListProduct'
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,7 +20,6 @@ function Cart(props) {
     const cartItems = useSelector(state => state.cart.cartItems);
     console.log(cartItems)
     var userInfo = useSelector(state => state.userSignin.userInfo)
-    console.log(userInfo)
     const totalPrice = cartItems.reduce((total, item) => total + item.qty * item.salePrice, 0)
 
     const Order = () => {
@@ -52,11 +51,11 @@ function Cart(props) {
                         Tổng tiền
                         </span>
                     <span className="right">
-                        {totalPrice}
+                        {formatPrice(totalPrice)}
                     </span>
                 </div>
                 <div className="order">
-                    <a href="" onClick={() => Order()}> Đặt Hàng </a>
+                    <Link onClick={() => Order()}> Đặt Hàng </Link>
                 </div>
 
 

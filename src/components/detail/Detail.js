@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import './Detail.css'
 import DetailInfo from './DetailInfo'
-import axios from 'axios'
+import RateStar from './RateStar';
 import {
     BrowserRouter as Router,
     Switch,
@@ -10,25 +9,29 @@ import {
     Link,
     useParams
 } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { getproductById } from '../../actions/ProductAction';
+import CommentProduct from './CommentProduct';
+import BlogContent from './BlogContent';
 
 function Detail(props) {
-    
+    const dispatch = useDispatch()
     const { id } = useParams();
-    const [detailProduct, setDetailProduct] = useState({});
+    const detailProduct = useSelector(state => state.getProductById.product)
+    console.log(detailProduct)
 
     useEffect(() => {
-        console.log('call api')
-        axios.get(`http://localhost:5000/products/detail/${id}`)
-            .then(response => {
-                console.log(response.data)
-                setDetailProduct(response.data)
-            })
-            .catch(err => console.log(err))
-    }, [])
+        dispatch(getproductById(id))
+    }, [dispatch])
 
     return (
         <section id="detail">
+            {
+                detailProduct ? (
             <div className="detail">
+                <div className="detail-title">
+                    <h2>{detailProduct.name}</h2>
+                </div>
                 <div className="detail-info">
                     <div className="detail-info-slide">
                         <div className="detail-info-slide-image">
@@ -37,9 +40,19 @@ function Detail(props) {
                     </div>
                     <DetailInfo  product={detailProduct}></DetailInfo>
                 </div>
-                {/* <AboutProduct></AboutProduct> */}
+                <div>
+                    <BlogContent></BlogContent>
+                </div>
+                <div>
+                    <RateStar></RateStar>
+                </div>
+                <div>
+                    <CommentProduct></CommentProduct>
+                </div>
                 
             </div>
+            ) : ''
+            }
         </section>
     );
 }

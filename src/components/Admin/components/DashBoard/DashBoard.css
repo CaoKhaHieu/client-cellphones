@@ -1,0 +1,111 @@
+*{
+    box-sizing: content-box;
+}
+.dashboard {
+}
+.dashboard-top {
+    padding: 1rem;
+  display: flex;
+  align-items: center;
+}
+.dashboard-top-search {
+}
+.dashboard-top-search form {
+  position: relative;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.dashboard-top-search input {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.5rem 2rem .5rem 1rem;
+}
+.dashboard-top-search span {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  cursor: pointer;
+}
+.dashboard-top-content-avatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.dashboard-top-content{
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+}
+.dashboard-top-content li{
+    margin-left: 1rem;
+}
+.dashboard-top-content-avatar{
+    display: flex;
+    align-items: center;
+}
+.dashboard-top-content-avatar span{
+    font-weight: 500;
+    margin-left: .5rem;
+    color: #6b6b6b;
+}
+.dashboard-top-content-bell{
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* middle */
+.dashboard-middle{
+    margin-top: 1rem;
+    display: flex;
+}
+.dashboard-middle-statistic{
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.dashboard-middle-statistic-content{
+     width: 50%;
+     padding: 1rem;
+}
+
+.dashboard-middle-statistic li{
+    background: white;
+    padding: 45px 0;
+    border-radius: 20px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 130px;
+}
+.dashboard-middle-statistic-icon{
+    font-size: 35px;
+    font-weight: 700;
+    color: #6b6b6b;
+
+}
+.dashboard-middle-statistic-title{
+    margin-left: 4rem;
+
+    display: flex;
+    flex-direction: column;
+}
+.dashboard-middle-statistic-title .total{
+    font-size: 25px;
+    font-weight: 700;
+    color: #6b6b6b;
+}
+.dashboard-middle-statistic-title .title{
+    font-size: 13px;
+    font-weight: 500;
+    color: gray;
+}
+
+
+.dashboard-middle-chart{
+    width: 50%;
+    padding: 1rem;
+}

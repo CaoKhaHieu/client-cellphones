@@ -2,9 +2,10 @@
     box-sizing: border-box;
 }
 .order-page{
-    /* min-width: 500px;
-    max-width: 600px; */
-    
+    max-width: 600px;
+    width: 600px;
+    background: #eee;
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -14,27 +15,167 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    padding: 1rem;
+    margin-top: 1rem;
 }
-.order-page input{
+.customer,.choose-pay{
+    width: 100%;
+    margin-top: 1rem;
+}
+.address{
+    width: 100%;
+    margin-top: .5rem;
+}
+.order-page h4{
+    text-align: left;
+    padding-left: .5rem;
+    margin: 0;
+}
+.form-customer, .choose{
+    display: flex;
+}
+.order-page input, textarea{
     width: 100%;
     outline: none;
     border: 1px solid #eee;
-    padding: 1rem 2rem;
-    margin: 1rem;
-    font-size: 18px;
+    padding: .5rem 1rem;
+    margin: .5rem;
+    font-size: 16px;
 }
-.order-page textarea{
+
+.choose-pay span{
     width: 100%;
     outline: none;
     border: 1px solid #eee;
-    padding: 1rem 2rem;
-    margin: 1rem;
-    font-size: 18px;
+    padding: .5rem 1rem;
+    margin: .5rem;
+    font-size: 16px;
+
+    background: white;
+    cursor: pointer;
 }
-.order-page input[type="submit"] {
-    background: #d70018;
+.choose-pay .active{
+    border: 1px solid #e11b1e;
+    color: #e11b1e;
+}
+.paypal img{
+    margin: 1rem auto;
+    width: 50%;
+    height: 100%;
+}
+
+
+
+.address-form{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+.province{
+    position: relative;
+    width: 50%;
+    padding: 0 .5rem;
+    margin-top: 1rem;
+}
+.province button{
+    width: 100%;
+    outline: none;
+    border: 1px solid #eee;
+    font-size: 16px;
+    padding: .5rem 1rem;
+    background: white;
+    color: #288ad6;
+    cursor: pointer;
+
+    text-align: left;
+}
+.province button::after{
+    content: "";
+    border-top: 6px solid #288ad6;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+
+    position: absolute;
+    right: 1rem;
+    top: 18px;
+}
+.province .active::after{
+    transform: rotate(180deg);
+}
+
+.select{
+    background: white;
+    position: absolute;
+    top: 110%;
+    min-width: 280px;
+
+    z-index: 11;
+}
+.select-list{
+    display: flex;
+    width: 100%;
+    max-height: 190px;
+    overflow-y: scroll;
+
+    z-index: 11;
+    padding: 1rem;
+    border: 1px solid #eee;
+}
+.select-list aside{
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+
+    cursor: pointer;
+}
+.select-list aside span{
+    width: 50%;
+    background: white;
+    color: #5897fb;
+    text-align: left;
+
+    padding: 6px;
+}
+.select-list aside span:hover{
+    background: #5897fb;
     color: white;
 }
+.province input{
+    margin: 0;
+}
+
+.customer-order{
+    width: 100%;
+    margin-top: 1rem;
+}
+.customer-order button{
+    font-size: 16px;
+    margin: 0 .5rem;
+    padding: 1rem 0;
+    width: 100%;
+    background: #e11b1e;
+    color: white;
+    outline: none;
+    border: none;
+}
+
+/* ----------- bank payment       */
+.choose-bank{
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.bank{
+    width: calc(100%/3);
+    cursor: pointer;
+    padding: .5rem;
+}
+.bank img{
+    width: 100%;
+    height: 100%;
+}
+
 
 @media screen and (max-width: 400px){
     #order{

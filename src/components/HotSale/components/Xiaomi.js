@@ -15,7 +15,6 @@ function Xiaomi(props) {
         async function FetchApi(){
             try {
                 const {data} = await axios.get(`http://localhost:5000/products/${name}`)
-                console.log(data)
                 setHotXiaomi(data)
             } catch (error) {
                 console.log(error)

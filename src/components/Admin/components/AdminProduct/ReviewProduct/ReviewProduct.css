@@ -1,0 +1,16 @@
+#review{
+    
+}
+.review{
+
+}
+.review-title{
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+.review-content{
+    padding: 0 1rem;
+}

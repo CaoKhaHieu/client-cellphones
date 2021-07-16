@@ -13,7 +13,6 @@ function Iphone(props) {
         async function FetchApi(){
             try {
                 const {data} = await axios.get(`http://localhost:5000/products/${name}`)
-                console.log(data)
                 setHotIphone(data)
             } catch (error) {
                 console.log(error)

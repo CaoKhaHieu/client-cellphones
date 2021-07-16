@@ -9,36 +9,53 @@ import CartPage from './pages/CartPage';
 import OrderPage from './pages/OrderPage';
 import SearchPage from './pages/SearchPage';
 import AdminPage from './pages/AdminPage';
-
+import ResetScroll from './components/ResetScroll/ResetScroll';
+import MyOrderPage from './pages/MyOrderPage';
+import ChatPage from './pages/ChatPage';
 function App() {
   return (
     <div className="App">
+  
       <Router>
+        
+        <ResetScroll></ResetScroll>
+
         <Route path="/" exact>
           <HomePage></HomePage>
         </Route>
+
         <Route path="/login">
           <LoginPage></LoginPage>
         </Route>
         <Route path="/register">
           <SignupPage></SignupPage>
         </Route>
+
         <Route path="/product">
           <ProductPage></ProductPage>
         </Route>
         <Route path="/detail/:id">
           <DetailPage></DetailPage>
         </Route>
+
         <Route path='/cart'>
           <CartPage></CartPage>
         </Route>
+
         <Route path='/order'>
           <OrderPage></OrderPage>
         </Route>
+        <Route path='/MyOrder'>
+          <MyOrderPage></MyOrderPage>
+        </Route>
+
         <Route path='/search'>
           <SearchPage></SearchPage>
         </Route>
 
+        <Route path='/chat'>
+          <ChatPage></ChatPage>
+        </Route>
 
         <Route path='/admin'>
           <AdminPage></AdminPage>

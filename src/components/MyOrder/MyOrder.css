@@ -1,0 +1,69 @@
+#myorder{
+    
+}
+.myorder{
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    padding: 1rem 0;
+}
+.myorder-menu{
+    display: flex;
+    flex-wrap: wrap;
+}
+.myorder-menu-item{
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    margin-right: 1rem;
+    padding: .5rem 0;
+    background: white;
+    border: 1px solid #d70018;
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.myorder-menu-item a{
+    padding: 0 1rem;
+    color: #d70018;
+    display: block;
+}
+.myorder-menu-item:hover{
+    background: #d70018;
+    transition: .3s;
+}
+.myorder-menu-item:hover a{
+    color: white;
+    transition: .3s;
+}
+
+.myorder-menu-item-newPendding, .myorder-menu-item-newShipping{
+    position: absolute;
+    top: -15px;
+    right: -15px;
+
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background: #d70018;
+    color: white;
+
+    text-align: center;
+    line-height: 30px;
+
+}
+
+@media screen and (max-width: 500px){
+    .myorder{
+        width: 100%;
+    }
+    .myorder-content{
+        padding: 0 1rem;
+    }
+    .myorder-menu-item{
+        margin: .5rem 1%;
+        width: 48%;
+    }
+}

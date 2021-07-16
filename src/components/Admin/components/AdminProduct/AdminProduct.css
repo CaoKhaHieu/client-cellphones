@@ -1,0 +1,116 @@
+.admin-product .add-product{
+    display: flex;
+}
+.admin-product .add-product span{
+    font-size: 35px;
+}
+.admin-product .add-product span:hover{
+    color: #1890ff;
+    transition: .3s;
+}
+.admin-product span{
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+.admin-product-list{
+    background: white;
+    margin: 0 .5rem 0 1rem;
+    color: #6b6b6b;
+    padding: 1rem;
+
+    border-radius: 4px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+.admin-product-list table{
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+}
+
+.admin-product-list table th{
+    color: #6b6b6b;
+    font-size: 18px;
+    font-weight: 600;
+    background: #f9f9f9;
+    padding: .5rem 0;
+    min-width: 30px;
+}
+.admin-product-list table td{
+    padding: .5rem 0;
+    font-size: 16px;
+}
+.admin-product-list table td img{
+    width: 100px;
+}
+
+
+.admin-product-list tr .delete-product, .admin-product-list tr .update-product, .review-product{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+
+    cursor: pointer;
+    padding: 0;
+}
+.admin-product-list tr .delete-product span, .admin-product-list tr .update-product span{
+    border-radius: 50%;
+}
+.admin-product-list tr .delete-product:hover span{
+    background: rgb(223, 28, 28);
+    transition: .3s;
+}
+.admin-product-list tr .update-product:hover span{
+    background: #1890ff;
+    transition: .3s;
+}
+.admin-product-list tr .delete-product:hover span, .admin-product-list tr .update-product:hover span{
+    color: white;
+}
+
+.admin-product-list .pagination{
+    padding: 1rem 0;
+}
+.admin-product-list .pagination span{
+    display: block;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 0;
+}
+
+
+/* ----- create product */
+.admin-create-product{
+    display: flex;
+    flex-direction: column;
+}
+.admin-create-product input, select{
+    margin-bottom: 1rem;
+    padding: .5rem 1rem;
+    font-size: 14px;
+
+    width: 100%;
+}
+.select-type{
+    margin-bottom: 1rem;
+}
+.admin-create-product button{
+    background: white;
+    color: #333;
+    font-size: 16px;
+    font-weight: 600;
+    padding: .7rem 5rem;
+    border: 1px solid #333;
+    border-radius: 50px;
+    outline: none;
+    cursor: pointer;
+}
+.admin-create-product button:hover{
+    background: #1890ff;
+    color: white;
+    border: none;
+    transition: .3s;
+}
+

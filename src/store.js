@@ -1,10 +1,11 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
 import { getAllUserReducer, UserSigninReducer, UserSignupReducer} from './reducers/UserReducer'
-import {getProductByTypeReducer, getAllProductReducer, SaveProductReducer, DeleteProductReducer, getProductByIdReducer, paginationProductReducer, ascendingProductReducer, descendingProductReducer, searchProductReducer} from './reducers/ProductReducer'
+import {getProductByTypeReducer, getAllProductReducer, getProductByIdReducer, paginationProductReducer, ascendingProductReducer, descendingProductReducer, searchProductReducer, reviewProductReducer} from './reducers/ProductReducer'
 
 import { CartReducer} from './reducers/CartReducer'
-import { getAllOrderReducer } from './reducers/OrderReducer'
+import { addressReducer, getAllOrderReducer, getOrderByUserReducer } from './reducers/OrderReducer'
+import { ChatReducer } from './reducers/ChatReducer'
 
 const initialState = {
     userSignin: {
@@ -27,20 +28,22 @@ const reducer = combineReducers({
     users: getAllUserReducer,
     userSignin: UserSigninReducer,
     userSignup: UserSignupReducer,
-    // deleteUser: deleteUserReducer,
 
     allProduct: getAllProductReducer,
-    paginationProduct: paginationProductReducer,
+    // paginationProduct: paginationProductReducer,
     getProductById: getProductByIdReducer,
-    productSave: SaveProductReducer,
-    productDelete: DeleteProductReducer,
+    
     searchProduct: searchProductReducer,
 
     cart: CartReducer,
 
     allOrder: getAllOrderReducer,
+    address: addressReducer,
+    orderByUser: getOrderByUserReducer,
     // orderCreate: orderCreateReducer,
     // deleteOrder: deleteOrderReducer,
+
+    chat: ChatReducer,
 })
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

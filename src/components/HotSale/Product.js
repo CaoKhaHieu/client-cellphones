@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import {AddToCart} from '../../actions/CartAction'
 import {Link} from 'react-router-dom'
+import {formatPrice} from '../../untils/index'
 
 Product.propTypes = {
     // product: PropTypes.object,
@@ -26,8 +27,8 @@ function Product(props) {
                 <img src={product.image}></img>
                 <p className="hotsale-listproduct-product-name">{product.name}</p>
                 <div className="price">
-                    <span className="price1">{product.salePrice}</span>
-                    <span className="price2">{product.price}</span>
+                    <span className="price1">{formatPrice(product.salePrice)}đ</span>
+                    <span className="price2">{formatPrice(product.price)}đ</span>
                 </div>
             </Link>
             {

@@ -1,0 +1,124 @@
+.appchat{
+    display: flex;
+    background: white;
+    margin-left:  1rem;
+}
+.contact{
+    padding: 1rem;
+    width: 280px;
+    border: 1px solid #eee;
+}
+.contact-top h2{
+    margin: 0;
+    display: flex;
+    padding: 1rem 0;
+    font-size: 25px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
+.contact-list{
+    overflow: hidden;
+}
+.contact-list-item{
+    display: flex;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+.contact-list-item-avarta{
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+
+    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 600;
+    color: #6b6b6b;
+    background: #eee;
+
+    border-radius: 50%;
+}
+.contact-list-item-content{
+    margin-left: 1rem;
+}
+.contact-list-item-name{
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    text-align: left;
+}
+.contact-list-item-lastmessage{
+    overflow-y: hidden;
+    color: #6b6b6b;
+}
+
+
+.chat{
+    flex-grow: 1;
+
+}
+.ad-chatuser{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    border: 1px solid #eee;
+}
+.ad-chatuser-user{
+    text-align: left;
+    color: #6b6b6b;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #eee;
+    box-shadow: 0px 3px 4px -4px;
+}
+.ad-chatuser-user-name{
+    text-align: left;
+    font-weight: 700;
+    font-size: 17px;
+}
+.ad-chatuser-listmessage{
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+.ad-chatuser-listmessage-message{
+    display: flex;
+    padding: 1rem;
+    word-break: break-word;
+}
+.ad-chatuser-listmessage-message p{
+    padding: 8px;
+    background: #e4e6eb;
+    max-width: 400px;
+    margin-top: .2rem;
+    border-radius: 20px;
+    text-align: left;
+}
+.ad-chatuser-listmessage-message.me{
+    justify-content: flex-end
+}
+.ad-chatuser-listmessage-message.me p{
+    background: #1890ff;
+    color: white;
+}
+
+.ad-chatuser-typemessage{
+    display: flex;
+    padding: 1rem .5rem;
+    border-top: 1px solid #eee;
+    box-shadow: 0px 3px 4px -4px;
+}
+.ad-chatuser-typemessage input{
+    width: 100%;
+    padding: .3rem 1rem;
+    outline: none;
+    border: 1px solid #ddd;
+}
+.ad-chatuser-typemessage button{
+    background: #1890ff;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+}

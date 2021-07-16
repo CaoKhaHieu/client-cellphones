@@ -1,0 +1,48 @@
+.all-myorder{
+    margin-top: 1rem;
+}
+.all-myorder-list{
+    
+}
+.all-myorder-parent-item{
+    border-bottom: 1px solid #d70018;
+}
+.all-myorder-item{
+    display: flex;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+}
+.all-myorder-item-name{
+    flex-grow: 1;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+}
+.all-myorder-item-name {
+    padding-left: 1rem;
+}
+.all-myorder-item-name p{
+    margin-bottom: 0;
+}
+.all-myorder-item-price{
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.all-myorder-item-img img{
+    width: 100px;
+}
+.all-myorder-item-totalprice{
+    text-align: right;
+    padding: .5rem 0;
+}
+.all-myorder-item-totalprice span{
+    font-size: 16px;
+}
+.all-myorder-item-totalprice strong{
+    font-size: 20px;
+    color: #d70018;
+}
+

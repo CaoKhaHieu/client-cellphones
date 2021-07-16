@@ -4,7 +4,7 @@ import Login from '../components/login/Login';
 
 function LoginPage(props) {
     return (
-        <div className="login">
+        <div>
             <Login></Login>
         </div>
     );

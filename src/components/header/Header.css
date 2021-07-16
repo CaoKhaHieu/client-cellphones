@@ -7,7 +7,8 @@
     height: 60px;
     background: #d70018;
 
-    /* position: fixed; */
+    position: sticky;
+    top: 0;
     z-index: 10000;
 }
 #menu {
@@ -18,25 +19,30 @@
     align-items: center;
 }
 .logo{
-   flex-grow: 1;
    display: flex;
    justify-content: flex-start;
 }
 .logo span a{
-    font-size: 28px;
+    font-size: 25px;
     color: #fff;
+    margin-right: 1rem;
 }
 .menu-list {
     display: flex;
+    margin: 0;
 }
+
 .menu-list li {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 100px;
 }
-.menu-list li a {
+.menu-list li > a {
+    position: relative;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #fff;
     cursor: pointer;
 
@@ -44,36 +50,57 @@
     justify-content: center;
     align-items: center;
     padding: 0rem 1rem;
+    text-transform: uppercase;
 }
 .menu-list ul {
     margin: 0;
     padding: 0;
 }
+.menu-drop{
+    position: absolute;
+    margin-top: .5rem;
+    top: 100%;
+    width: 100%;
+    left: 0;
+    background: white;
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 4px 3px 4px -5px;
+}
+.menu-drop a{
+    padding: .3rem 1rem;
+    color: #333;
+}
+.menu-drop a:hover{
+    background: #eee;
+    color: #333;
+}
+.search{
+    flex-grow: 1;
+}
+.search form {
+    position: relative;
+ }
 .search form input {
    padding: .3rem 1rem;
    outline: none;
    border: none;
+   width: 100%;
 }
-.search form button {
-    padding: .3rem 1rem;
-    margin: 0 .5rem;
-    outline: none;
- }
-.shooping-cart{
-    position: relative;
-    font-size: 30px;
-}
-.count{
+.search form span {
     position: absolute;
-    width: 20px;
-    height: 22px;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+ }
+ .search form span svg{
+    font-size: 22px;
+    color: black;
+ }
 
-    background: white;
-    color: #d70018;
-    line-height: 20px;
-    text-align: center;
-    border-radius: 100%;
-}
+
+
 /* search product */
 .SearchProduct{
     display: flex;
@@ -116,6 +143,25 @@
     margin: 8px 0;
 }
 
+.ant-dropdown-link:hover{
+    color: #fff;
+    cursor: pointer;
+}
+
+
+.count{
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 20px;
+    height: 22px;
+
+    background: white;
+    color: #d70018;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 100%;
+}
 
 @media screen and (max-width: 800px){
     #hidden{
@@ -147,6 +193,7 @@
         padding: 1rem 0;
     }
     .menu-list a{
+        padding: 0;
         color: white;
     }
     .close{
@@ -158,9 +205,9 @@
     }
     .bar{
         display: block;
+        margin-left: 1rem;
     }
     .search{
-        padding: 0 1rem;
         flex-grow: 1;
     }
     .search form{

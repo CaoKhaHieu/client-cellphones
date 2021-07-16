@@ -1,0 +1,102 @@
+.chatapp{
+    
+}
+.openchat{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 200px;
+    background: #d70018;
+    color: white;
+    padding: .5rem 0;
+    border-radius: 50px;
+    cursor: pointer;
+
+}
+.chatuser{
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    height: 450px;
+    width: 330px;
+    border: 1px solid #eee;
+
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 3px 4px -4px;
+    background: #fff;
+}
+.chatuser-user{
+    height: 25px;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem .5rem;
+
+    box-shadow: 0px 3px 4px -4px;
+    border-bottom: 1px solid #eee;
+}
+.chatuser-user-name{
+    flex-grow: 1;
+    text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+}
+.chatuser-user-line{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.chatuser-user-line:hover{
+    background: #ddd;
+    transition: .3s;
+}
+.chatuser-listmessage{
+    flex-grow: 1;
+    overflow-y: scroll;
+    padding: .5rem;
+    
+    overflow-y: auto;
+}
+.chatuser-listmessage-message{
+    display: flex;
+}
+.chatuser-listmessage-message p{
+    padding: 8px;
+    background: #e4e6eb;
+    max-width: 200px;
+    margin-top: .2rem;
+    border-radius: 20px;
+    text-align: left;
+}
+.chatuser-listmessage-message.me{
+    justify-content: flex-end
+}
+.chatuser-listmessage-message.me p{
+    background: #d70018;
+    color: white;
+
+}
+.chatuser-typemessage{
+    display: flex;
+    padding: 1rem .5rem;
+    border-top: 1px solid #eee;
+    box-shadow: 0px 3px 4px -4px;
+}
+.chatuser-typemessage input{
+    width: 100%;
+    padding: .3rem 1rem;
+    outline: none;
+    border: 1px solid #ddd;
+}
+.chatuser-typemessage button{
+    background: #d70018;
+    color: white;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.scroll{
+    position: fixed;
+    bottom: 60px;
+    right: 30px;
+
+
+}
+.scrolltotop{
+    background: #d70018;
+    color: white;
+    font-size:20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .5s;
+
+    cursor: pointer;
+}

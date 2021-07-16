@@ -1,6 +1,5 @@
 
 .login-page{
-
     position: absolute;
     top: 50%;
     left: 50%;
@@ -10,6 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 1rem;
 }
 .login-page input{
     width: 100%;
@@ -17,14 +17,19 @@
     border: 1px solid #eee;
     padding: 1rem 2rem;
     margin: 1rem;
-    font-size: 18px;
+    font-size: 16px;
 }
 .login-page input[type="submit"] {
     background: #d70018;
+    color: rgb(36, 19, 19);
     color: white;
 }
 
-@media screen and (max-width: 400px){
+
+@media screen and (max-width: 800px){
+    #login{
+        padding: 1rem;
+    }
     .login-page{
         position: relative;
         width: 100%;
@@ -33,8 +38,15 @@
     .form-order{
         padding: 1rem;
     }
-    .login-page .form input, textarea{
-        margin: 10px 0;
+    .login-page input, textarea{
+        margin: 8px 0;
     }
-
+    .login-page textarea{
+        margin:10px 0;
+    }
+}
+@media screen and (max-width: 500px){
+    .form-login input{
+        font-size: 16px;
+    }
 }

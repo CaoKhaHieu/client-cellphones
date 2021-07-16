@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import {formatPrice} from '../../untils/index'
 import { useDispatch } from 'react-redux'
 import {AddToCart, DeleteToCart, DeleteQtyProduct} from '../../actions/CartAction'
 Product.propTypes = {
@@ -37,17 +37,18 @@ function Product(props) {
                         {product.name}
                     </p>
                     <p className="product-price">
-                        {product.salePrice}
+                        {formatPrice(product.salePrice)}
                     </p>
                 </div>
-            </div>
-            <div className="shopping-cart-list-product-bottom">
-                <button className="delete-product" onClick={() => handleProductOut(product)}> Xóa khỏi giỏ hàng </button>
-                <ul className="button-event">
-                    <li onClick={() => handleDeleteProduct(product)}>-</li>
-                    <li>{product.qty}</li>
-                    <li onClick={() => handleAddProduct(product)}>+</li>
-                </ul>
+                
+                <div className="shopping-cart-list-product-bottom">
+                    <ul className="button-event">
+                        <li onClick={() => handleDeleteProduct(product)}>-</li>
+                        <li>{product.qty}</li>
+                        <li onClick={() => handleAddProduct(product)}>+</li>
+                    </ul>
+                    <button className="delete-product" onClick={() => handleProductOut(product)}> Xóa khỏi giỏ hàng </button>
+                </div>
             </div>
         </div>
     );

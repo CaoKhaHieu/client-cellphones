@@ -48,9 +48,7 @@ p{
     padding: 2rem 1rem;
     border: 1px solid #eee;
 }
-.hotsale-listproduct-product-name{
-    height: 80px;
-}
+
 .hotsale-listproduct-product:hover{
     box-sizing: border-box;
     box-shadow: 0px 0px 5px -1px;
@@ -68,8 +66,10 @@ p{
 .hotsale-listproduct-product p{
     padding: 1rem 0;
     font-weight: 700;
-    color: #222;
-    font-size: 16px;
+    color: #333;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0;
 }
 .hotsale-listproduct-product .price{
     display:flex;
@@ -102,6 +102,7 @@ p{
 }
 .discount p{
     color: white;
+    margin: 0;
 }
 .buy{
     margin-top: 20px;
@@ -153,6 +154,15 @@ p{
 #priceStart, #priceEnd{
     padding: 4px 10px;
     margin-right: 1rem;
+}
+@media screen and (max-width: 1000px) {
+    .hotsale{
+       width: 90%;
+        padding: 0 .5rem;
+    }
+    .hotsale-listproduct-product{
+        width: 33.3%;
+    }
 }
 @media screen and (max-width: 800px) {
     .hotsale{

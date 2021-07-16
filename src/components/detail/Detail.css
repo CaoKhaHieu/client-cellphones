@@ -2,70 +2,27 @@
     box-sizing: border-box;
 }
 
-#detail {
-    width: 100%;
-    height: 100%;
-    margin-top: 1rem;
-}
-
-.detail {
+.detail{
     width: 80%;
     margin: auto;
+    padding-top: 1rem;
+}
+.detail-title{
+    text-align: left;
+    padding: .5rem 0;
+}
+.detail-info{
     display: flex;
 }
-
-.detail-info {
-    width: 70%;
-    display: flex;
-}
-
-.detail-intro {
-    width: 30%;
-    margin: 0.5rem 0;
-}
-
-.detail-info-slide {
-    width: 50%;
-}
-
 .detail-info-slide-image {
-    display: flex;
-    justify-content: center;
-    border: 1px solid #ddd;
-}
-
-.detail-info-slide img {
+    border: 1px solid #eee;
     padding: 1rem 0;
-    height: 400px;
-    max-height: 400px;
 }
-
-.detail-info-slide-control {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1rem;
+.detail-info-slide-image img{
+    max-width: 350px;
 }
-
-.detail-info-slide-control-item {
-    border: 1px solid #ddd;
-    padding: 0.3rem;
-    cursor: pointer;
-}
-
-.detail-info-slide-control-item:hover img {
-    transform: scale(1.1);
-    transition: 0.4s;
-}
-
-.detail-info-slide-control-item img {
-    text-align: center;
-    width: 100px;
-    height: 130px;
-}
-
 .detail-info-right {
-    padding: 0 1rem;
+    padding-left: 1rem;
 }
 
 .detail-info-right-price {
@@ -73,7 +30,16 @@
     border-radius: 7px;
     padding: 1rem;
 }
-
+.detail-intro table{
+    border: none;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+    border: 1px solid #eee
+}
+.detail-info-slide, .detail-info-right, .about-product{
+    width: calc(75%/2);
+}
 .price-box {
     display: flex;
     line-height: 30px;
@@ -195,27 +161,257 @@
     font-weight: 700;
 }
 
+.ant-rate-star-first svg{
+    font-size: 30px;
+}
+
+
+/* rate star */
+.rate{
+    border: 1px solid #eee;
+    padding: 1.5rem 0;
+}
+.rate-star-title{
+    display: flex;
+    font-size: 23px;
+    padding: 1rem 0;
+}
+.thongke span{
+    display: flex;
+    font-size: 14px;
+}
+.thongke{
+    display: flex;
+    align-items: center;
+}
+.numstar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.star-average{
+    margin-bottom: 0;
+}
+.percent{
+    width: 100%;
+    margin-bottom: 0;
+    font-size: 14px;
+}
+.guidanhgia{
+    padding: 0.5rem 1rem;
+    background: orange;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.ant-rate-star-full svg{
+    color: orange;
+}
+.rate-send{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.rate-send textarea{
+    width: 64%;
+    height: 100px;
+    padding: 1rem;
+    margin: 0 1rem;
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+
+
+/* comment */
+.comment{
+    margin-top: 1rem;
+}
+.comment-area textarea{
+    padding: 10px;
+    width: 1000px;
+    height: 112px;
+    outline: none;
+    border: 1px solid #eee;
+}
+.comment-send {
+    margin-top: 1rem;
+}
+.comment-send button{
+    padding: 5px 25px;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    border: 1px solid #e11b1e;
+    border-radius: 4px;
+    background: #e11b1e;
+    margin: 0;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.all-comment{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+.all-comment-info{
+    display: flex;
+}
+.all-comment-info-name{
+    width: 25px;
+    height: 25px;
+    background: #ddd;
+    margin-right: 7px;
+    text-align: center;
+    color: #777;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 26px;
+    font-weight: 600;
+}
+.all-comment-content, .all-comment-more{
+    display: flex;
+    margin-left: 2rem;
+    padding: 0.5rem 0;
+}
+.all-comment-more{
+    display: flex;
+    margin-left: 2rem;
+    padding: 0.3rem 0;
+}
+.all-comment-more-chat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.all-comment-more-chat p{
+    margin-bottom: 0;
+    color: #e11b1e;
+    margin-left: 1rem;
+}
+
+.all-comment-rep-list{
+    position: relative;
+    background: #eee;
+    width: calc(100% - 30px);
+    float: right;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    padding: 1rem;
+}
+.all-comment-rep-list-item{
+    padding-top: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+.all-comment-rep-list-item:nth-child(1){
+    padding-top: 0;
+}
+
+
+/*--------  blog */
+#blog{
+    width: 100%;
+    margin-top: 1rem;
+}
+.blog{
+    width: 75%;
+}
+.blog-content{
+    position: relative;
+    height: 500px;
+    overflow:hidden;
+}
+.blog-content p{
+    text-align: justify;
+    font-size: 15px;
+    line-height: 1.5;
+
+    font-weight: 500;
+    color: #444;
+    margin-bottom: 10px;
+}
+.blog-content h2{
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+.blog-content h3{
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-top: .5rem;
+}
+.blog-content strong{
+    font-weight: 700;
+}
+.blog-content img{
+    width: 100%;
+}
+.blog-showmore{
+    padding-top: 50px;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    color: #d70018;
+    cursor: pointer;
+    background: linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.91) 50%,#fff 55%);
+}
+
+
+
+
+@media screen and (max-width: 1000px){
+    .detail{
+        width: 100%;
+        justify-content: center;
+        padding: 0 1rem;
+    }
+    .detail-info{
+        flex-direction: column;
+    }
+    .detail-info-slide, .detail-info-right, .about-product{
+        margin-top: 1rem;
+        width: calc(100%);
+        padding: 0 0.5rem;
+    }
+
+}
 @media screen and (max-width: 800px){
     .detail{
         width: 100%;
-        display: flex;
         justify-content: center;
+        padding: 0 1rem;
     }
     .detail-info{
-        width: 100%;
         flex-direction: column;
     }
-    .detail-info-slide{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 1rem;
+    .detail-info-slide, .detail-info-right, .about-product{
+        margin-top: 1rem;
+        width: calc(100%);
+        padding: 0 0.5rem;
     }
-    .detail-info-slide img{
-        width: 200px;
-        height: 200px;
+
+}
+@media screen and (max-width: 500px){
+    .detail{
+        padding: 0 0.2rem;
     }
     .detail-info-slide-image{
-        text-align: center;
+        padding: 1rem 0;
+    }
+    .detail-info-slide-image img{
+        width: 270px;
+    }
+    .guidanhgia{
+        padding: 0.2rem 0.5rem;
+        border-radius: 30px;
     }
 }

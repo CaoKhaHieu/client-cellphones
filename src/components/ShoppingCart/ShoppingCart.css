@@ -42,17 +42,21 @@
    height: 150px;
 }
 .product-name{
+    display: flex;
+    justify-content: flex-start;
     font-size: 15px;
     font-weight: 700;
     color: #3c3d41;
     margin-bottom: 5px;
 }
 .product-price{
+    display: flex;
+    justify-content: flex-start;
     font-size: 14px;
     color: #e11b1e;
 }
 .shopping-cart-list-product-bottom{
-    display: flex;
+   
     justify-content: center;
     margin-top: 1rem;
 }
@@ -108,9 +112,10 @@
     padding: 0.7rem 2.5rem;
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 900px){
     .shopping-cart{
-        width: 100%;
+        width: 90%;
+        margin: auto;
     }
     
     .shopping-cart-header{

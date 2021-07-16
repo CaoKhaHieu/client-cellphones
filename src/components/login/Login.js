@@ -27,19 +27,17 @@ function Login(props) {
     
     return (
         <div class="login-page">
-            <div className="form">
-            <h2> login</h2>
-            <form onSubmit={handleSubmit(onSubmit)} class="register-form">
-                <input {...register("email")} placeholder="email"></input>
-                <input {...register("password")} placeholder="password" type="password"></input>
+            <h2> ĐĂNG NHẬP </h2>
+            <form onSubmit={handleSubmit(onSubmit)} class="form-login">
+                <input {...register("email")} placeholder="Email"></input>
+                <input {...register("password")} placeholder="Password" type="password"></input>
 
-                <input type="submit"></input>
+                <input type="submit" value="Đăng Nhập"></input>
                 {
                     error ? (<h2>{error}</h2>) : <></>
                 }
-                <Link to="/register">Create account?</Link>
+                <Link to="/register">Tạo tài khoản?</Link>
             </form>
-            </div>
 
         </div>
     );

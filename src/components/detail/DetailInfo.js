@@ -2,12 +2,11 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import {AddToCart} from '../../actions/CartAction'
 import {Link} from 'react-router-dom'
+import {formatPrice} from '../../untils/index'
 
 function DetailInfo(props) {
     const dispatch = useDispatch()
     const { product } = props;
-
-    console.log(product)
     
     function handleAddProduct(product) {
         const action = AddToCart(product)
@@ -18,8 +17,8 @@ function DetailInfo(props) {
         <div className="detail-info-right">
             <div className="detail-info-right-price">
                 <p className="price-box">
-                    <span className="saleprice">{product.salePrice}đ</span>
-                    <span className="old-price">Giá niêm yết : <strong className="price">{product.price}đ</strong> </span>
+                    <span className="saleprice">{formatPrice(product.salePrice)}đ</span>
+                    <span className="old-price">Giá niêm yết : <strong className="price">{formatPrice(product.price)}đ</strong> </span>
                 </p>
                 <p className="detail-info-sale">
                     Sản phẩm thuộc chương trình HOT SALE CUỐI TUẦN - Nhanh tay thanh toán!

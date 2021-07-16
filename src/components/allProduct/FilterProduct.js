@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { filterProduct, getAllProduct, filterProductByPrice } from '../../actions/ProductAction';
+import {formatPrice} from '../../untils/index'
 
 function FilterProduct(props) {
     const dispatch = useDispatch()
@@ -14,6 +15,7 @@ function FilterProduct(props) {
         await dispatch(getAllProduct())
         let startPrice = parseInt(a)
         let endPrice = parseInt(b)
+        console.log(formatPrice(startPrice))
         dispatch(filterProductByPrice(startPrice, endPrice))
     }
 

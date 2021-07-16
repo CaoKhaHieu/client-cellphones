@@ -13,7 +13,7 @@ function Search(props) {
         <section id="hotsale iphone">
             <div className="hotsale">
                 {
-                    products.length > 0 ? (<ListProduct HotSaleProducts={handlePercentDiscount(products)}></ListProduct>) : (<h2>ko tim thay sp</h2>)
+                    products ? (<ListProduct HotSaleProducts={handlePercentDiscount(products)}></ListProduct>) : (<h2>ko tim thay sp</h2>)
                 }
             </div>
         </section>

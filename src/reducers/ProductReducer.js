@@ -1,17 +1,18 @@
+const initialState = {
+    product:[],
+    currentPage: 1
+}
 
-export const getAllProductReducer = (state = {product: []}, action) => {
+export const getAllProductReducer = (state = initialState, action) => {
     switch (action.type) {
         case 'GET_ALL_PRODUCT':
-            console.log(action.payload);
             return {...state, product: action.payload}
 
         case 'GET_ALL_PRODUCT_FAIL':
             return {...state, error: action.payload}
 
         case 'ASCENDING_PRODUCT':{
-            console.log(action.payload);
             let newList = [...state.product]
-            console.log(newList)
             newList = newList.sort((a,b) => b.salePrice - a.salePrice)
             return {...state, product: newList}
         }
@@ -35,61 +36,14 @@ export const getAllProductReducer = (state = {product: []}, action) => {
             return {...state, product: newList}
         }
 
-        default:
-            return state
-           
-    }
-}
-
-export const paginationProductReducer = (state = {}, action) => {
-    switch (action.type) {
-        case 'PAGINATION_PRODUCT':
-            return {...state, product: action.payload}
-            
-    
-        default:
-            return state
-           
-    }
-}
-
-export const getProductByIdReducer = (state = {}, action) => {
-    switch (action.type) {
-        case 'GET_PRODUCT_BY_ID':{
-            return {...state, product: action.payload}
-        }
-    
-        default: return state
-    }
-}
-
-// export const DetailProductReducer = (state = {}, action) => {
-//     switch (action.type) {
-//         case 'GET_ALL_PRODUCT':
-//             return {...state, product: action.payload}
-    
-//         default:
-//             return state
-//     }
-// }
-
-export const SaveProductReducer = (state = {}, action) => {
-    switch (action.type) {
         case 'SAVE_PRODUCT':{
-            console.log({...state, product: action.payload})
             return {...state, product: action.payload}
         }
 
         case 'SAVE_PRODUCT_FAIL':{
             return {...state, error: action.payload}
         }
-            
-        default: return state
-    }
-}
 
-export const DeleteProductReducer = (state = {}, action) => {
-    switch (action.type) {
         case 'DELETE_PRODUCT':{
             return {...state, product: action.payload}
         }
@@ -97,9 +51,68 @@ export const DeleteProductReducer = (state = {}, action) => {
         case 'DELETE_PRODUCT_FAIL':{
             return {...state, error: action.payload}
         }
+
+        case 'EDIT_CURRENT_PAGE':{
+            return {...state, currentPage: action.payload}
+        }
+        
+        case 'PAGINATION_PRODUCT':
+            console.log(action.payload)
+            return {...state, product: action.payload}
+
+        default:
+            return state
+           
+    }
+}
+
+// export const paginationProductReducer = (state = {}, action) => {
+//     switch (action.type) {
+//         case 'PAGINATION_PRODUCT':
+//             return {...state, product: action.payload}
+            
+    
+//         default:
+//             return state
+           
+//     }
+// }
+
+export const getProductByIdReducer = (state = {}, action) => {
+    switch (action.type) {
+        case 'GET_PRODUCT_BY_ID':{
+            return {...state, product: action.payload}
+        }
+
+        case 'REMOVE_PRODUCT_BY_ID':{
+            return {}
+        }
+
+        case 'REVIEW_PRODUCT':{
+            return {...state, product: action.payload}
+        }
+
+        case 'REVIEW_PRODUCT_FAIL':{
+            return {...state, error: action.payload}
+        }
+
+        case 'COMMENT_PRODUCT':{
+            return {...state, product: action.payload}
+        }
+
+        case 'COMMENT_PRODUCT_FAIL':{
+            return {...state, error: action.payload}
+        }
+
+        case 'REP_COMMENT_PRODUCT':{
+            return {...state, product: action.payload}
+        }
+
+        case 'REP_COMMENT_PRODUCT_FAIL':{
+            return {...state, error: action.payload}
+        }
     
         default: return state
-            
     }
 }
 
@@ -116,4 +129,5 @@ export const searchProductReducer = (state = {}, action) => {
         default: return state
     }
 }
+
 
