@@ -15,7 +15,7 @@ function AdminUser(props) {
         <div className="admin-user">
             <span>Customers</span>
             {
-                users ? (<ListUser users={users}></ListUser>) : (<h2> khong ton tai user nao</h2>)
+                users ? (<ListUser users={users}></ListUser>) : (<h2> Loading</h2>)
             }
         </div>
     );

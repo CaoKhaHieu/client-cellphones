@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {formatPrice} from '../../untils/index'
 import { useDispatch } from 'react-redux'
 import {AddToCart, DeleteToCart, DeleteQtyProduct} from '../../actions/CartAction'

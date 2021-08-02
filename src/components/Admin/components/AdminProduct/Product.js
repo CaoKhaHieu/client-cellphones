@@ -1,31 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   DeleteProduct,
-  editCurrentPage,
-  getAllProduct,
   paginationProduct,
 } from "../../../../actions/ProductAction";
 import { useHistory, Link } from "react-router-dom";
 import { formatPrice } from "../../../../untils/index";
 import { DeleteOutlined, EditOutlined, FormOutlined } from "@ant-design/icons";
-import { Modal, Button } from "antd";
-import AdminUpdate from "./AdminUpdate";
+
 
 function Product(props) {
-  const history = useHistory();
-  const { product, update, number } = props;
+  const { product, number } = props;
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.allProduct.currentPage);
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
 
   const handleDeleteProduct = async (product) => {
     await dispatch(DeleteProduct(product._id));
@@ -48,27 +35,12 @@ function Product(props) {
         <DeleteOutlined />
       </td>
       <td className="update-product">
-        <Link onClick={showModal}>
+        <Link to={`/admin/product/update/${product._id}`}>
           <EditOutlined></EditOutlined>
         </Link>
-
-        <Modal
-          title="Basic Modal"
-          visible={isModalVisible}
-          onCancel={handleCancel}
-          width={1000}
-          height={1000}
-          footer={null}
-          title="Update Product"
-        >
-          <AdminUpdate
-            handleCancel={handleCancel}
-            product={product}
-          ></AdminUpdate>
-        </Modal>
       </td>
       <td className="review-product">
-        <Link to="/admin/product/reviewProduct">
+        <Link to={`/admin/product/reviewProduct/${product._id}`} >
           <FormOutlined></FormOutlined>
         </Link>
       </td>

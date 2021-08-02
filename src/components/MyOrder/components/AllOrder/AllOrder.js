@@ -13,7 +13,7 @@ const orderItem = (item) => (
       <p>{item.name}</p>
       <span>x{item.qty}</span>
     </div>
-    <div className="all-myorder-item-price">{formatPrice(item.price)}</div>
+    <div className="all-myorder-item-price">{formatPrice(item.salePrice)}</div>
   </div>
 );
 
@@ -23,7 +23,9 @@ export const orderParent = (item) => (
       {item.orderItems.map((item) => orderItem(item))}
     </div>
     <div className="all-myorder-item-totalprice">
-      <span>Tổng số tiền : </span> <strong>{formatPrice(item.totalPrice)}đ</strong>
+      <div>
+        <span>Tổng số tiền : </span> <strong>{formatPrice(item.totalPrice)}đ</strong>
+      </div>
     </div>
   </div>
 );
@@ -31,7 +33,7 @@ export const orderParent = (item) => (
 function AllOrder(props) {
   const dispatch = useDispatch();
   const { myOrders } = useSelector((state) => state.orderByUser);
-  console.log(myOrders)
+  
   const { userInfo } = useSelector((state) => state.userSignin);
   useEffect(() => {
     dispatch(getOrderByUser(userInfo._id));
@@ -39,7 +41,7 @@ function AllOrder(props) {
 
   return (
     <div className="all-myorder">
-      {myOrders ? myOrders.map((item) => orderParent(item)) : "Không có đơn hàng nào"}
+      {myOrders && myOrders.length > 0 ? myOrders.map((item) => orderParent(item)) : "Bạn không có đơn hàng nào"}
     </div>
   );
 }

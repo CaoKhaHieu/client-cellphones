@@ -6,18 +6,21 @@ import ListOrder from "../AdminOrderUI/ListOrder";
 function AdminOrderAll(props) {
   const dispatch = useDispatch();
   const orders = useSelector((state) => state.allOrder.order);
-  console.log("order paid", orders);
+  const { orderGhnInfo } = useSelector((state) => state.orderGhn);
+  const orderGhn = useSelector(state => state.orderGhn)
+  
+
   useEffect(() => {
-    console.log("get all order paid");
     dispatch(getAllOrder());
   }, []);
 
+
   return (
     <div>
-      {orders ? (
+      {orders && orders.length > 0 ? (
         <ListOrder orders={orders}></ListOrder>
       ) : (
-        <h2>khong co don hang</h2>
+        <h4>Không có đơn hàng</h4>
       )}
     </div>
   );

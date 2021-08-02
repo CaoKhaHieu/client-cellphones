@@ -28,4 +28,10 @@
         const arrCharacter = name.split('')[0]
         return arrCharacter
     } 
+
+    export const formatDateOrderPaypal = (timestamp) => {
+        const d = new Date( timestamp );
+        const date = d.getHours() + ":" + d.getMinutes() + ", " + d.toDateString();
+        return date
+    } 
     

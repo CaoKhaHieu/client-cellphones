@@ -17,6 +17,7 @@ function CommentProduct(props) {
     if(userInfo){
       const comment = {
         author: userInfo.name,
+        isAdmin: userInfo.isAdmin,
         content: value,
         byUser: userInfo._id,
       }

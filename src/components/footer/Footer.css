@@ -7,7 +7,7 @@
     width: 100%;
     margin: 0;
     
-    background: #f5f0f0;
+    background: #fafafa
 }
 
 .footer{
@@ -69,6 +69,7 @@
 @media screen and (max-width: 800px) {
     .footer{
         width: 100%;
+        padding: .5rem;
     }
     .footer-top-name, .footer-top-about, .footer-top-sp, .footer-top-delivery{
         width: calc(50%);

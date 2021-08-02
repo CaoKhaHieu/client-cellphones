@@ -7,56 +7,65 @@ import {
   AppstoreOutlined,
   UsergroupAddOutlined,
   ShopOutlined,
-  ShoppingCartOutlined,
   OrderedListOutlined,
   WechatOutlined,
 } from "@ant-design/icons";
 
 function Sidebar(props) {
   const dispatch = useDispatch();
+  const location = useLocation()
   const { orderPendding } = useSelector((state) => state.allOrder);
-
-//   useEffect(() => {
-//     console.log("get all order penddin");
-//     dispatch(GetAllOrderPendding());
-//   }, [dispatch]);
+  let totalNewOrder
   
+  if(orderPendding){
+    totalNewOrder = orderPendding.length
+  }
+
+  useEffect(() => {
+    console.log("get all order penddin");
+    
+    const getNewOrder = () => {
+      dispatch(GetAllOrderPendding());
+    }
+    getNewOrder()
+  }, [dispatch]);
+
   return (
     <div className="sidebar">
       <div className="sidebar-top">
         <img src="https://raw.githubusercontent.com/trananhtuat/tua-react-admin/main/src/assets/images/logo.png"></img>
       </div>
       <div className="sidebar-list">
-        <Link className="sidebar-list-item" to="/admin">
+        <Link to="/admin" className={'sidebar-list-item'}>
           <span>
             <AppstoreOutlined></AppstoreOutlined>
           </span>
           <p>Dashboard</p>
         </Link>
-        <Link className="sidebar-list-item" to="/admin/customer">
+        <Link to="/admin/customer" className={'sidebar-list-item'}>
           <span>
             <UsergroupAddOutlined></UsergroupAddOutlined>
           </span>
           <p>Customer</p>
         </Link>
-        <Link className="sidebar-list-item" to="/admin/product">
+        <Link to="/admin/product" className={'sidebar-list-item'}>
           <span>
             <ShopOutlined></ShopOutlined>
           </span>
           <p>Products</p>
         </Link>
-        <Link className="sidebar-list-item" to="/admin/order">
+        <Link to="/admin/order" className={'sidebar-list-item'}>
           <span>
             <OrderedListOutlined></OrderedListOutlined>
           </span>
           <p>
-            Order 
-            {/* {
-                orderPendding ? (<div className="admin-order-new">{orderPendding.length}</div>) : ''
-            } */}
+            Order
+            <div className="admin-order-new">
+                {totalNewOrder}
+              </div>
           </p>
         </Link>
-        <Link className="sidebar-list-item" to="/admin/chat">
+        <Link to="/admin/chat" className={location.pathname === '/admin/chat' ? 'sidebar-list-item active': 'sidebar-list-item'}>
           <span>
             <WechatOutlined></WechatOutlined>
           </span>

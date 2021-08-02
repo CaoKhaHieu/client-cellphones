@@ -25,7 +25,6 @@ export const getAllProductReducer = (state = initialState, action) => {
 
         case 'FILTER_PRODUCT':{
             let newList = [...state.product]
-            console.log(action.payload)
             newList = newList.filter(item => item.type === action.payload)
             return {...state, product: newList}
         }
@@ -34,6 +33,18 @@ export const getAllProductReducer = (state = initialState, action) => {
             let newList = [...state.product]
             newList = newList.filter(item => item.salePrice >= action.payload.startPrice && item.salePrice <= action.payload.endPrice)
             return {...state, product: newList}
+        }
+        
+        case 'FILTER_PRODUCT_BY_RANDOM_FIELD':{
+            return {...state, product: action.payload}
+            // let newList = [...state.product]
+            // for(var key in action.payload) {
+            //     var value = action.payload[key];
+
+            //     newList = newList.filter(item => item[key] === value)
+            // }
+            
+            // return {...state, product: newList}
         }
 
         case 'SAVE_PRODUCT':{
@@ -111,6 +122,23 @@ export const getProductByIdReducer = (state = {}, action) => {
         case 'REP_COMMENT_PRODUCT_FAIL':{
             return {...state, error: action.payload}
         }
+
+        case 'PIN_COMMENT_PRODUCT':{
+            return {...state, product: action.payload}
+        }
+
+        case 'PIN_COMMENT_PRODUCT_FAIL':{
+            return {...state, error: action.payload}
+        }
+
+        case 'BLOG_PRODUCT':{
+            return {...state, product: action.payload}
+        }
+
+        case 'BLOG_PRODUCT_FAIL':{
+            return {...state, error: action.payload}
+        }
+
     
         default: return state
     }

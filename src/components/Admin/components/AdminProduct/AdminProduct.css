@@ -8,6 +8,9 @@
     color: #1890ff;
     transition: .3s;
 }
+.admin-product-link{
+    display: flex;
+}
 .admin-product span{
     display: flex;
     padding: 1rem;
@@ -82,9 +85,22 @@
 
 
 /* ----- create product */
+.admin-create{
+
+}
+.admin-create > span{
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
 .admin-create-product{
     display: flex;
     flex-direction: column;
+    background: white;
+    margin: 0rem .5rem 1rem 1rem;
+    padding: 1rem;
 }
 .admin-create-product input, select{
     margin-bottom: 1rem;
@@ -113,4 +129,7 @@
     border: none;
     transition: .3s;
 }
-
+.admin-create-product .filter-menu-firm{
+    margin-top: 0;
+    margin-bottom: 1rem;
+}

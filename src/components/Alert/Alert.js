@@ -1,6 +1,6 @@
 import React from 'react';
 import './Alert.css'
-import {Link, useHistory} from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 import { CheckCircleOutlined  } from '@ant-design/icons';
 
 function Alert(props) {

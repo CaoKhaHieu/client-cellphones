@@ -1,66 +1,57 @@
-import React, { useEffect } from 'react';
-import axios from 'axios'
-import PropTypes from 'prop-types';
+import React from 'react';
 import { formatPrice } from '../../untils';
 import './ShoppingCart.css'
 import ListProduct from './ListProduct'
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
     Link,
     useHistory
 } from "react-router-dom";
 
 function Cart(props) {
-    const dispatch = useDispatch();
     const history = useHistory()
-    const cartItems = useSelector(state => state.cart.cartItems);
-    console.log(cartItems)
-    var userInfo = useSelector(state => state.userSignin.userInfo)
-    const totalPrice = cartItems.reduce((total, item) => total + item.qty * item.salePrice, 0)
+    const cartItems = useSelector((state) => state.cart.cartItems);
+    var userInfo = useSelector((state) => state.userSignin.userInfo);
+    const totalPrice = cartItems.reduce(
+      (total, item) => total + item.qty * item.salePrice,
+      0
+    );
 
     const Order = () => {
-        if(userInfo){
-            history.push('/order')
-        }else{
-            alert("ban can dang nhap")
-            history.push('/login')
-        }
-    }
-    
+      if (userInfo) {
+        history.push("/order");
+      } else {
+        alert("ban can dang nhap");
+        history.push("/login");
+      }
+    };
+
     return (
-        <section id="shopping-cart">
-            <div className="shopping-cart">
-                <div className="shopping-cart-header">
-                    <Link to="/" className="back">
-                        {/* <BsChevronDoubleLeft></BsChevronDoubleLeft> */}
-                            Tiếp tục mua hàng
-                        </Link>
-                    <h2 className="shopping-cart-title">Giỏ hàng</h2>
-                </div>
+      <section id="shopping-cart">
+        <div className="shopping-cart">
+          <div className="shopping-cart-header">
+            <Link to="/" className="back">
+              {/* <BsChevronDoubleLeft></BsChevronDoubleLeft> */}
+              Tiếp tục mua hàng
+            </Link>
+            <h2 className="shopping-cart-title">Giỏ hàng</h2>
+          </div>
 
-                {
-                    cartItems ? (<ListProduct products={cartItems}></ListProduct>) : ''
-                }
+          {cartItems ? <ListProduct products={cartItems}></ListProduct> : ""}
 
-                <div className="total-price">
-                    <span className="left">
-                        Tổng tiền
-                        </span>
-                    <span className="right">
-                        {formatPrice(totalPrice)}
-                    </span>
-                </div>
-                <div className="order">
-                    <Link onClick={() => Order()}> Đặt Hàng </Link>
-                </div>
-
-
+          <div className="total-price">
+            <span className="left">Tổng tiền</span>
+            <span className="right">{formatPrice(totalPrice)}</span>
+          </div>
+          {totalPrice <= 0 ? (
+            ""
+          ) : (
+            <div className="order">
+              <Link onClick={() => Order()}> Đặt Hàng </Link>
             </div>
-        </section>
+          )}
+        </div>
+      </section>
     );
 
 

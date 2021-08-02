@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import ListProduct from '../ListProduct'
 
-import {handlePercentDiscount, SortProductByDiscount} from '../../../untils/index'
-import { useDispatch, useSelector } from 'react-redux';
+import {handlePercentDiscount} from '../../../untils/index'
+import { useDispatch} from 'react-redux';
 
 
 function Samsung(props) {

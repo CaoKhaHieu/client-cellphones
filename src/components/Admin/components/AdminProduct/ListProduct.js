@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editCurrentPage, paginationProduct } from '../../../../actions/ProductAction';
 import Product from './Product';
 import { Pagination } from 'antd';
-import {Link, useHistory} from 'react-router-dom'
 
 function ListProduct(props) {
     const dispatch = useDispatch()

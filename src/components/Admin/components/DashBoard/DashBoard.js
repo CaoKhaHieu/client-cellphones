@@ -8,7 +8,7 @@ import {
   FileTextOutlined,
 } from "@ant-design/icons";
 import "./DashBoard.css";
-import Chart from "./ChartDashBoard";
+import ChartDashBoard from "./ChartDashBoard";
 
 export default function DashBoard() {
   return (
@@ -81,7 +81,7 @@ export default function DashBoard() {
               </li>
             </div>
           </div>
-          <Chart></Chart>
+          <ChartDashBoard></ChartDashBoard>
         </div>
 
         <div className="dashboard-new">

@@ -1,5 +1,4 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import {getFirstCharacterUser} from '../../../../../untils/index'
 
 function ListConversation(props) {

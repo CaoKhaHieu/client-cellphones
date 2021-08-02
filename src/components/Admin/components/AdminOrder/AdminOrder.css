@@ -22,6 +22,7 @@
   background: white;
   padding: 0 1rem;
   box-sizing: none;
+  box-shadow: rgb(149 157 165 / 20%) 0px 8px 24px;
 }
 .order-list-items {
   /* display: flex; */
@@ -73,20 +74,27 @@
 .order-info-address b {
   color: #6b6b6b;
 }
+.order-bottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .order-button {
+  display: flex;
+    align-items: center;
   flex-grow: 1;
-  text-align: right;
+  justify-content: flex-end;
 }
 .order-button button {
-  margin-left: .5rem;
   padding: 0.5rem 2rem;
+  margin-left: 1rem;
   outline: none;
   border: none;
   border-radius: 8px;
   cursor: pointer;
 }
 .order-button .shipping {
-  background: #15e765;
+  background: #1890ff;
   color: white;
 }
 .order-button .paid {
@@ -96,6 +104,12 @@
 .order-button .delete {
   background: #d70018;
   color: white;
+}
+
+
+.order-status {
+  display: flex;
+  color: #1890ff;
 }
 
 
@@ -132,4 +146,26 @@
 
   background: #1890ff;
   color: white;
+}
+
+
+.order-payment-check{
+  font-size: 15px;
+  color: #6b6b6b;
+  display: flex;
+}
+
+
+
+/* -------------- print */
+
+
+
+@media print {
+  html, body {
+    height: initial !important;
+    overflow: initial !important;
+    -webkit-print-color-adjust: exact;
+    padding: .5rem;
+  }
 }

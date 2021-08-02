@@ -22,7 +22,7 @@ function HomePage(props) {
             <Footer></Footer>
             <ScrollToTop></ScrollToTop>
             {
-               userInfo ? (<AppChat></AppChat>) : ""
+               userInfo && userInfo.isAdmin === false ? (<AppChat></AppChat>) : ""
             }
         </div>
     );

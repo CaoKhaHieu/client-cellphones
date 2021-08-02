@@ -4,13 +4,15 @@ import Chat from './Chat/Chat'
 import './AppChat.css'
 function AppChat(props) {
     return (
+      <section id="appchat">
+        <span>Messages</span>
         <div className="appchat">
-            <Contact></Contact>
-            <div className="chat">
-                <Chat></Chat>
-            </div>
-            
+          <Contact></Contact>
+          <div className="chat">
+            <Chat></Chat>
+          </div>
         </div>
+      </section>
     );
 }
 

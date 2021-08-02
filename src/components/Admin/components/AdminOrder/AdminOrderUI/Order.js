@@ -1,91 +1,139 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
-  deleteOrder,
-  getAllOrder,
-  GetAllOrderPendding,
-  GetAllOrderShipping,
-  PaidOrder,
-  ShippingOrder,
-} from "../../../../../actions/OrderAction";
-import { formatPrice } from "../../../../../untils/index";
+  createOrderGhn,
+  PrintOrderGhn,
+} from "../../../../../actions/GhnAction";
+import { deleteOrder, getAllOrder, ShippingOrder } from "../../../../../actions/OrderAction";
+import {
+  formatPrice,
+  formatDateOrderPaypal,
+} from "../../../../../untils/index";
 
 function Order(props) {
   const { order } = props;
-  const orderStatus = order.status;
   const dispatch = useDispatch();
-  const { orderItems, totalPrice, shippingAddress, user, name } = order;
 
-  // const handleDeleteOrder = async (order) => {
-  //   console.log(order);
-  //   await dispatch(deleteOrder(order));
-  //   dispatch(getAllOrder());
-  // };
+  const {
+    orderItems,
+    totalPrice,
+    paymentMethod,
+    cancelOrder,
+    shippingAddress,
+    status,
+    paymentResult,
+  } = order;
 
   const handleShippingOrder = async (order) => {
+    await dispatch(createOrderGhn(order._id)); // create order in giaohangnhanh
     await dispatch(ShippingOrder(order._id));
-    await dispatch(GetAllOrderPendding());
-    dispatch(GetAllOrderShipping())
+
+    dispatch(getAllOrder());
   };
 
-  const handlePaidOrder = async (order) => {
-    await dispatch(PaidOrder(order._id));
-    dispatch(GetAllOrderShipping())
+  const handlePrintOrder = (order) => {
+    console.log(order);
+    dispatch(PrintOrderGhn(order._id));
   };
+
+  const handleDeleteOrder = async (order) => {
+    await dispatch(deleteOrder(order._id))
+    dispatch(getAllOrder())
+  }
 
   return (
-    <div className="order-list">
-      <div className="order-list-items">
-        {orderItems.map((item) => (
-          <div className="order-items-item">
-            <span className="img">
-              <img src={item.image}></img>
-            </span>
-            <span className="qty">Qty: {item.qty}</span>
-            <span className="name">{item.name}</span>
-            <span className="price">{formatPrice(item.price)}</span>
+    <>
+      <div className="order-list">
+        <div className="order-list-items">
+          {orderItems.map((item) => (
+            <div className="order-items-item">
+              <span className="img">
+                <img src={item.image}></img>
+              </span>
+              <span className="qty">Qty: {item.qty}</span>
+              <span className="name">{item.name}</span>
+              <span className="price">{formatPrice(item.salePrice)}</span>
+            </div>
+          ))}
+        </div>
+        <div className="toatalPrice">
+          <span>Tổng tiền: {formatPrice(totalPrice)}</span>
+        </div>
+        <div className="order-info">
+          <div className="order-info-address">
+            <b>Địa chỉ : </b> {"  "}
+            {shippingAddress.name},{""}
+            {shippingAddress.province}, {shippingAddress.district},{"  "}
+            {shippingAddress.ward}, {shippingAddress.detail},{" "}
+            {shippingAddress.phone}
           </div>
-        ))}
-      </div>
-      <div className="toatalPrice">
-        <span>Tổng tiền: {formatPrice(totalPrice)}</span>
-      </div>
-      <div className="order-info">
-        <div className="order-info-address">
-          <b>Địa chỉ : </b> {"  "}
-          {shippingAddress.name},{"  "}
-          {shippingAddress.province}, {shippingAddress.district},{"  "}
-          {shippingAddress.ward}, {shippingAddress.detail},{" "}
-          {shippingAddress.phone}
         </div>
-        <div className="order-button">
-          {orderStatus === "pendding" ? (
-            <button
-              className="shipping"
-              onClick={() => handleShippingOrder(order)}
-            >
-              Shipping
-            </button>
+
+        {paymentResult ? (
+          <div className="order-payment-check">
+            Paid : {formatDateOrderPaypal(paymentResult.update_time)}
+          </div>
+        ) : (
+          ""
+        )}
+
+        <div className="order-bottom">
+          {status === "shipping" ? (
+            <div className="order-status">
+              <span>
+                Đã xác nhận{" "}
+                {paymentMethod === "payOnline" ? (
+                  <span>& Đã thanh toán</span>
+                ) : (
+                  ""
+                )}
+              </span>
+            </div>
           ) : (
             ""
           )}
-          {orderStatus === "shipping" ? (
-            <button
-              className="paid"
-              onClick={() => handlePaidOrder(order)}
-            >
-              Confirm Paid
-            </button>
-          ) : (
-            ""
-          )}
-          {/* <button className="delete" onClick={() => handleDeleteOrder(order)}>
-            Delete
-          </button> */}
+
+          <div className="order-button">
+            {status === "pendding" && cancelOrder === false ? (
+              <>
+                <button
+                  className="shipping"
+                  onClick={() => handleShippingOrder(order)}
+                >
+                  Xác nhận đơn hàng
+                </button>
+
+              </>
+            ) : (''
+            )}
+
+            {
+              cancelOrder === true ? (<>
+              <span> Khách yêu cầu hủy đơn </span>
+                <button
+                  className="shipping"
+                  onClick={() => handleDeleteOrder(order)}
+                >
+                  Hủy đơn
+                </button>
+
+              </>) : ''
+            }
+
+            {status === "shipping" ? (
+              <button
+                className="shipping"
+                onClick={() => handlePrintOrder(order)}
+              >
+                In đơn hàng
+              </button>
+            ) : (
+              ""
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -12,6 +12,19 @@ export const filterProductByType = (name) => async (dispatch) => {
   }
 };
 
+
+export const filterProductByRandomField = (infoProduct) => async (dispatch) => {
+  try {
+    console.log(infoProduct)
+    const { data } = await axios.post(`${BASE_URL}/products/filter/random`, infoProduct);
+    dispatch({ type: "FILTER_PRODUCT_BY_RANDOM_FIELD", payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+
+  // dispatch({ type: "FILTER_PRODUCT_BY_RANDOM_FIELD", payload: infoProduct });
+};
+
 export const getAllProduct = () => async (dispatch) => {
   try {
     const { data } = await axios.get(`http://localhost:5000/products/`);
@@ -22,31 +35,19 @@ export const getAllProduct = () => async (dispatch) => {
 };
 
 export const ascendingProduct = (products) => async (dispatch, getState) => {
-  const {
-    allProduct: { product },
-  } = getState();
-  dispatch({ type: "ASCENDING_PRODUCT", payload: product });
+  dispatch({ type: "ASCENDING_PRODUCT"});
 };
 
 export const descendingProduct = (products) => async (dispatch, getState) => {
-  const {
-    allProduct: { product },
-  } = getState();
-  dispatch({ type: "DESCENDING_PRODUCT", payload: product });
+  dispatch({ type: "DESCENDING_PRODUCT"});
 };
 
 export const filterProduct = (name) => async (dispatch, getState) => {
-  const {
-    allProduct: { product },
-  } = getState();
   dispatch({ type: "FILTER_PRODUCT", payload: name });
 };
 
 export const filterProductByPrice =
   (startPrice, endPrice) => async (dispatch, getState) => {
-    const {
-      allProduct: { product },
-    } = getState();
     dispatch({
       type: actions.FILTER_PRODUCT_BY_PRICE,
       payload: { startPrice, endPrice },
@@ -178,8 +179,7 @@ export const commentProduct = (id, comment) => async (dispatch, getState) => {
   }
 };
 
-export const repCommentProduct =
-  (id, comment) => async (dispatch, getState) => {
+export const repCommentProduct = (id, comment) => async (dispatch, getState) => {
     try {
       const { data } = await axios.post(
         `http://localhost:5000/products/rep/comment/${id}`,
@@ -190,3 +190,35 @@ export const repCommentProduct =
       dispatch({ type: "REP_COMMENT_PRODUCT_FAIL", payload: error });
     }
   };
+
+  export const pinCommentProduct = (id, comment) => async (dispatch, getState) => {
+    try {
+      const { data } = await axios.post(
+        `http://localhost:5000/products/pin/comment/${id}`, comment
+      );
+      dispatch({ type: "PIN_COMMENT_PRODUCT", payload: data });
+    } catch (error) {
+      dispatch({ type: "PIN_COMMENT_PRODUCT_FAIL", payload: error });
+    }
+  };
+
+export const BlogProduct = (id, blog) => async (dispatch, getState) => {
+  console.log(blog)
+  const {
+    userSignin: { userInfo },
+  } = getState();
+  try {
+    const { data } = await axios.post(
+      `http://localhost:5000/products/blog/${id}`,
+      blog,
+      {
+        headers: {
+          Authorization: `Bearer ${userInfo.token}`,
+        },
+      }
+    );
+    dispatch({ type: "BLOG_PRODUCT", payload: data });
+  } catch (error) {
+    dispatch({ type: "BLOG_PRODUCT_FAIL", payload: error });
+  }
+};

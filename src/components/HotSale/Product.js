@@ -1,25 +1,34 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import {AddToCart} from '../../actions/CartAction'
 import {Link} from 'react-router-dom'
 import {formatPrice} from '../../untils/index'
-
-Product.propTypes = {
-    // product: PropTypes.object,
-};
-Product.defaultProps = {
-    // product: null,
-}
+import { message} from 'antd';
 
 function Product(props) {
     const { product } = props;
     const dispatch = useDispatch();
 
-    function AddProductToCart(product) {
+    const success = () => {
+        message.success({
+            content: 'Thêm vào giỏ hàng thành công',
+            duration: 1,
+            className: 'custom-class',
+            style: {
+                position: 'absolute',
+                right: '2rem',
+                top: '2rem',
+                margin: '1rem 0'
+            },
+          });
+      };
+
+    const  AddProductToCart = async (product) => {
         const action = AddToCart(product);
-        dispatch(action);
+        await dispatch(action);
+        success()
     }
+
 
     return (
         <div className="hotsale-listproduct-product">
@@ -39,6 +48,7 @@ function Product(props) {
             <div className="buy">
                 <Link to="" onClick={(e) => {AddProductToCart(product)}}> Mua Ngay</Link>
             </div>
+    
         </div>
     );
 }

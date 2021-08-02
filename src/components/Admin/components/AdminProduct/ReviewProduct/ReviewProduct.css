@@ -14,3 +14,8 @@
 .review-content{
     padding: 0 1rem;
 }
+.review-content button{
+    margin-top: 1rem;
+    padding: .5rem 1rem ;
+    cursor: pointer;
+}

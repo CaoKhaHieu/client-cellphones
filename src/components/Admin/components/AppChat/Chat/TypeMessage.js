@@ -18,17 +18,15 @@ function TypeMessage(props) {
     setValue("");
   };
   return (
-    <div>
-      <form onSubmit={handleFormSubmit} className="ad-chatuser-typemessage">
-        <input
-          placeholder="Type a message"
-          type="text"
-          value={value}
-          onChange={handleValueChange}
-        />
-        <button type="submit">Gửi</button>
-      </form>
-    </div>
+    <form onSubmit={handleFormSubmit} className="ad-chatuser-typemessage">
+      <input
+        placeholder="Type a message"
+        type="text"
+        value={value}
+        onChange={handleValueChange}
+      />
+      <button type="submit">Gửi</button>
+    </form>
   );
 }
 

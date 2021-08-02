@@ -1,6 +1,7 @@
 
 .signup-page{
     position: absolute;
+    width: 500px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,0%);
@@ -15,14 +16,16 @@
     width: 100%;
     outline: none;
     border: 1px solid #eee;
-    padding: 1rem 2rem;
+    padding: .8rem 1.5rem;
     margin: 1rem;
-    font-size: 16px;
+    font-size: 15px;
 }
 .signup-page input[type="submit"] {
     background: #d70018;
-    color: rgb(36, 19, 19);
     color: white;
+    max-width: 250px;
+
+    cursor: pointer;
 }
 
 

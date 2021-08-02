@@ -1,18 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 import {formatPrice} from '../../untils/index'
 
-Product.propTypes = {
-    // product: PropTypes.object,
-};
-Product.defaultProps = {
-    // product: null,
-}
 
 function Product(props) {
     const { product } = props;
-    const dispatch = useDispatch();
 
     function AddToCart(product) {
         // const action = AddProduct(product);

@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Detail.css'
 import DetailInfo from './DetailInfo'
 import RateStar from './RateStar';
 import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link,
     useParams
 } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';

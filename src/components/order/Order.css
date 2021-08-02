@@ -1,7 +1,8 @@
 *{
     box-sizing: border-box;
 }
-.order-page{
+
+.order-content{
     max-width: 600px;
     width: 600px;
     background: #eee;
@@ -11,13 +12,32 @@
     left: 50%;
     transform: translate(-50%,0%);
 
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 1rem;
+    margin-top: 1rem; */
+    margin-top: 1rem;
+}
+.order-page{
+    max-width: 600px;
+    width: 600px;
+    background: #eee;
+
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,0%); */
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     padding: 1rem;
-    margin-top: 1rem;
+    
 }
 .customer,.choose-pay{
     width: 100%;
@@ -44,7 +64,7 @@
     font-size: 16px;
 }
 
-.choose-pay span{
+.choose-pay button{
     width: 100%;
     outline: none;
     border: 1px solid #eee;
@@ -63,6 +83,9 @@
     margin: 1rem auto;
     width: 50%;
     height: 100%;
+}
+.vnpay{
+    border: 1px solid #333;
 }
 
 
@@ -160,23 +183,79 @@
     border: none;
 }
 
-/* ----------- bank payment       */
-.choose-bank{
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;
+.paypal{
+    padding: 0 .5rem;
 }
-.bank{
-    width: calc(100%/3);
-    cursor: pointer;
-    padding: .5rem;
+.paypal-buttons{
+    margin-top: 1rem;
 }
-.bank img{
+
+/* ----------- vnpay payment       */
+.payment-vnpay{
+    margin-top: .5rem;
+}
+.payment-vnpay button{
+    margin: 0 ;
+    height: 55px;
+    border: 1px solid #333;
+
+    font-weight: 500;
+}
+.payment-vnpay button:hover{
+    background: #eee;
+}
+#order-success{
+    position: relative;
+    height: 100vh;
     width: 100%;
-    height: 100%;
 }
+.order-success{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.order-success > span {
+    font-size: 50px;
+    color: limegreen;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid limegreen;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.order-success > p {
+    font-size: 30px;
+    
+}
+.order-success .links{
+    display: flex;
+    
+}
+.order-success .links a{
+    min-width: 200px;
+    font-size: 18px;
+    border: 1px solid #ddd;
+    margin-right: 1rem;
+    padding: .5rem 0;
+    color: #333;
+    border-radius: 26px;
+}
+.order-success .links a:hover{
+    background-color: #ddd;
+    transition: .3s;
+}
 @media screen and (max-width: 400px){
     #order{
         padding: 1rem;

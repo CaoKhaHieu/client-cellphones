@@ -33,6 +33,10 @@
     border-radius: 18px;
     color: #6b6b6b;
 }
+.sidebar-list-item.active{
+    background: #1890ff;
+    color: white;
+}
 .sidebar-list-item p{
    margin:0 0 0 1rem;
 }

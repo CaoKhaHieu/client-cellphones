@@ -1,12 +1,15 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getOrderPenddingByUser,
   getOrderShippingByUser,
 } from "../../../actions/OrderAction";
+
 function MenuOrder(props) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
+  const location = useLocation()
+  console.log(location)
 
   const { userInfo } = useSelector((state) => state.userSignin);
   const { myOrdersPendding } = useSelector((state) => state.orderByUser);
@@ -23,10 +26,10 @@ function MenuOrder(props) {
 
   return (
     <div className="myorder-menu">
-      <div className="myorder-menu-item">
-        <Link to="/myOrder">Tất cả</Link>
+      <div className={location.pathname === '/myOrder' ? 'myorder-menu-item active' : 'myorder-menu-item'}>
+        <Link to={'/myOrder' }>Tất cả</Link>
       </div>
-      <div className="myorder-menu-item">
+      <div className={location.pathname === '/myOrder/pendding' ? 'myorder-menu-item active' : 'myorder-menu-item'}>
         <Link to="/myOrder/pendding">Chờ xử lí</Link>
         {myOrdersPendding ? (
           <div className="myorder-menu-item-newPendding">
@@ -36,7 +39,7 @@ function MenuOrder(props) {
           ""
         )}
       </div>
-      <div className="myorder-menu-item">
+      <div className={location.pathname === '/myOrder/shipping' ? 'myorder-menu-item active' : 'myorder-menu-item'}>
         <Link to="/myOrder/shipping">Đang giao</Link>
         {myOrdersShipping ? (
           <div className="myorder-menu-item-newShipping">
@@ -46,8 +49,8 @@ function MenuOrder(props) {
           ""
         )}
       </div>
-      <div className="myorder-menu-item">
-        <Link to="/myOrder/paid">Đã thanh toán</Link>
+      <div className={location.pathname === '/myOrder/paid' ? 'myorder-menu-item active' : 'myorder-menu-item'}>
+        <Link to="/myOrder/paid">Đã giao</Link>
       </div>
     </div>
   );

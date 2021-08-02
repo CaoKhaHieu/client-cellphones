@@ -83,7 +83,7 @@ p{
 }
 .hotsale-listproduct-product .price2{
     text-decoration: line-through;
-    font-size: 14px;
+    font-size: 16px;
     color: gray;
 }
 
@@ -102,9 +102,13 @@ p{
 }
 .discount p{
     color: white;
+    margin-bottom: 0;
 }
 .buy{
     margin-top: 20px;
+}
+.buy a:hover{
+    color: white;
 }
 .buy a{
     padding: 7px 17px;
@@ -121,7 +125,6 @@ p{
 
 .button, .filter{
     display: flex;
-    margin-top: 1rem;
 }
 .thapdencao, .caodenthap, .filter-type button, .filter-price button{
     background: #d70018;
@@ -134,7 +137,10 @@ p{
     position: relative;
 }
 
-
+.filter{
+    display: flex;
+    flex-direction: column;
+}
 .filter ul{
     display: flex;
     flex-wrap: wrap;
@@ -149,6 +155,22 @@ p{
     background: #d70018;
     color: white;
     transition: .5s
+}
+.options-price{
+    display: flex;
+    margin-top: 1rem;
+}
+.options-price input{
+    border: 1px solid #eee;
+    outline: none;
+}
+.options-price button{
+    border: 1px solid #d70018;
+    outline: none;
+
+    background: #d70018;
+    color: white;
+    padding: 0 1rem;
 }
 #priceStart, #priceEnd{
     padding: 4px 10px;
@@ -165,16 +187,35 @@ p{
     .filter{
         flex-direction: column;
     }
+    .filter-type button, .filter-price button {
+        
+        padding: .2rem 12px;
+        
+    }
     .options-price{
         display: flex;
-        margin: 1rem 0;
-        padding: 0;
+        flex-direction: column;
+        
+    }
+    .options-price input{
+        margin-bottom: 1rem;
+    }
+    .options-price button{
+        padding: .2rem 0;
+        max-width: 100px;
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
+    .hotsale-listproduct-product{
+        padding: .5rem;
+    }
     .hotsale-listproduct-product img{
         width: 100px;
         height: 100px;
+    }
+    .hotsale-listproduct-product .price1,.hotsale-listproduct-product .price2{
+        display:flex;
+        font-size: 12px;
     }
 }

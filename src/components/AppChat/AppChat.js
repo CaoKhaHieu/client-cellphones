@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import axios from "axios";
 import ListMessage from "./Components/ListMessage.js/ListMessage";
 import TypeMessage from "./Components/TypeMessage/TypeMessage";
 import './AppChat.css'
 import { LineOutlined } from '@ant-design/icons';
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 let socket;
 

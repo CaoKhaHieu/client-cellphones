@@ -1,9 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Product from './Product'
-ListProduct.propTypes = {
-    
-};
 
 function ListProduct(props) {
     const {HotSaleProducts} = props;

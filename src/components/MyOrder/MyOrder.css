@@ -25,10 +25,16 @@
     justify-content: center;
     align-items: center;
 }
+.myorder-menu-item.active{
+    background: #d70018; 
+}
 .myorder-menu-item a{
     padding: 0 1rem;
     color: #d70018;
     display: block;
+}
+.myorder-menu-item.active a{
+   color: white;
 }
 .myorder-menu-item:hover{
     background: #d70018;

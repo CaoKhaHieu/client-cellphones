@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Header.css";
 import { SignoutUser } from "../../actions/UserAction";
@@ -16,12 +16,14 @@ function Header(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  
+
   const [showAccount, setShowAccount] = useState(false);
   const [showAccount2, setShowAccount2] = useState(false);
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, error } = userSignin;
-  console.log(userInfo)
+  console.log(userInfo);
   const [search, setSearch] = useState("");
   const cartItems = useSelector((state) => state.cart.cartItems);
   const amount = cartItems.reduce((a, b) => a + b.qty, 0);
@@ -34,9 +36,10 @@ function Header(props) {
   };
 
   const SearchProduct = async (e) => {
+    e.preventDefault()
     await history.push("/search");
     dispatch(searchProduct(search));
-    e.preventDefault();
+    setSearch('')
   };
 
   return (
@@ -48,11 +51,12 @@ function Header(props) {
           </span>
         </div>
         <div className="search">
-          <form>
+          <form onSubmit={(e) => SearchProduct(e)}>
             <input
               type="text"
               name="search"
               placeholder="Tìm kiếm ..."
+              defaultValue={setSearch}
               onChange={(e) => setSearch(e.target.value)}
             ></input>
             <SearchOutlined onClick={(e) => SearchProduct(e)}></SearchOutlined>
@@ -68,13 +72,13 @@ function Header(props) {
           </li>
           {userInfo ? (
             <li onClick={() => setShowAccount2(!showAccount2)}>
-              <Link>{userInfo.name}
-              <DownOutlined style={{ fontSize: "14px" }} /></Link>
+              <Link>
+                {userInfo.name}
+                <DownOutlined style={{ fontSize: "14px" }} />
+              </Link>
               {showAccount2 ? (
                 <div className="menu-drop">
-                  {
-                    userInfo.isAdmin ? (<Link to="/admin">Admin</Link>) : ''
-                  }
+                  {userInfo.isAdmin ? <Link to="/admin">Admin</Link> : ""}
                   <Link to="/myOrder">Đơn hàng</Link>
                   <Link onClick={() => handleSignout()}>Đăng xuất</Link>
                 </div>

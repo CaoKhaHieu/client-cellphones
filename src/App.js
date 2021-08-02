@@ -12,6 +12,9 @@ import AdminPage from './pages/AdminPage';
 import ResetScroll from './components/ResetScroll/ResetScroll';
 import MyOrderPage from './pages/MyOrderPage';
 import ChatPage from './pages/ChatPage';
+import PaymentPage from './pages/PaymentPage';
+import OrderSuccessPage from './pages/OrderSuccessPage'
+
 function App() {
   return (
     <div className="App">
@@ -44,6 +47,12 @@ function App() {
 
         <Route path='/order'>
           <OrderPage></OrderPage>
+        </Route>
+        <Route path='/orderSuccess'>
+          <OrderSuccessPage></OrderSuccessPage>
+        </Route>
+        <Route path='/payment'>
+          <PaymentPage></PaymentPage>
         </Route>
         <Route path='/MyOrder'>
           <MyOrderPage></MyOrderPage>

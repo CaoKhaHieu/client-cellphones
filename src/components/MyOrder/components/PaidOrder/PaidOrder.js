@@ -13,7 +13,7 @@ const orderItem = (item) => (
       <p>{item.name}</p>
       <span>x{item.qty}</span>
     </div>
-    <div className="all-myorder-item-price">{formatPrice(item.price)}</div>
+    <div className="all-myorder-item-price">{formatPrice(item.salePrice)}</div>
   </div>
 );
 
@@ -40,7 +40,7 @@ function PaidOrder(props) {
 
   return (
     <div className="all-myorder">
-      {myOrdersPaid ? myOrdersPaid.map((item) => orderParent(item)) : "Không có đơn hàng nào"}
+      {myOrdersPaid && myOrdersPaid.length > 0 ? myOrdersPaid.map((item) => orderParent(item)) : "Bạn không có đơn hàng nào"}
     </div>
   );
 }

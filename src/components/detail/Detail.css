@@ -262,6 +262,15 @@
 .all-comment-info{
     display: flex;
 }
+
+.all-comment-info span{
+    background: #e11b1e;
+    font-weight: 500;
+    padding: .1rem .2rem;
+    color: white;
+
+    line-height: 25px;
+}
 .all-comment-info-name{
     width: 25px;
     height: 25px;
@@ -273,6 +282,15 @@
     font-size: 12px;
     line-height: 26px;
     font-weight: 600;
+}
+
+.all-comment-info-name.admin{
+    background: none;
+}
+.all-comment-info-name.admin img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 .all-comment-content, .all-comment-more{
     display: flex;
@@ -305,6 +323,19 @@
     border-radius: 5px;
     padding: 1rem;
 }
+.arrow-up {
+    position: absolute;
+    top: -6px;
+    left: 33px;
+    width: 10px;
+    height: 10px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 5px solid #eee;
+  }
+ 
 .all-comment-rep-list-item{
     padding-top: 1rem;
     border-bottom: 1px solid #ddd;
@@ -365,6 +396,17 @@
     background: linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.91) 50%,#fff 55%);
 }
 
+
+.comment-status{
+    flex-grow: 1;
+    text-align: end;
+}
+.comment-status-pin span{
+    font-size: 25px;
+    color: #333333;
+    background: none;
+    cursor: pointer;
+}
 
 
 

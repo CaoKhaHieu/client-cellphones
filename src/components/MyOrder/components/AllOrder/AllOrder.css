@@ -5,7 +5,7 @@
     
 }
 .all-myorder-parent-item{
-    border-bottom: 1px solid #d70018;
+    border-bottom: 1px solid #eee;
 }
 .all-myorder-item{
     display: flex;
@@ -46,3 +46,8 @@
     color: #d70018;
 }
 
+.myorder-cancel{
+    font-size: 15px;
+    color: #d70018;
+    cursor: pointer;
+}

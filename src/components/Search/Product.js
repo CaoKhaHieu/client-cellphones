@@ -1,19 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import {formatPrice} from '../../untils'
 
-
-Product.propTypes = {
-    // product: PropTypes.object,
-};
-Product.defaultProps = {
-    // product: null,
-}
 
 function Product(props) {
     const { product } = props;
-    const dispatch = useDispatch();
-
     function AddToCart(product) {
         // const action = AddProduct(product);
         // dispatch(action);
@@ -25,8 +15,8 @@ function Product(props) {
                 <img src={product.image}></img>
                 <p className="hotsale-listproduct-product-name">{product.name}</p>
                 <div className="price">
-                    <span className="price1">{product.salePrice}</span>
-                    <span className="price2">{product.price}</span>
+                    <span className="price1">{formatPrice(product.salePrice)}đ</span>
+                    <span className="price2">{formatPrice(product.price)}đ</span>
                 </div>
             </a>
             <div className="discount">

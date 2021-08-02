@@ -66,7 +66,7 @@ function Chat(props) {
     socket.emit('chat', data);
   };
   return (
-    <>
+   
       <div className="ad-chatuser">
         <div className="ad-chatuser-user">
           <span className="ad-chatuser-user-name">{nameConversation}</span>
@@ -80,9 +80,8 @@ function Chat(props) {
 
         <TypeMessage onSubmit={handleFormSubmit}></TypeMessage>
       </div>
-      {/* <ListMessage messages={messages} user={userInfo}></ListMessage>
-            <TypeMessage onSubmit={handleFormSubmit}></TypeMessage> */}
-    </>
+      
+   
   );
 }
 

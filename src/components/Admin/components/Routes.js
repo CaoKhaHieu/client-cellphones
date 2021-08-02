@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
 import Dashboard from '../pages/Dashboard';
-import Customers from '../pages/Customers';
 import AdminProduct from './AdminProduct/AdminProduct';
 import AdminCreate from './AdminProduct/AdminCreate'
 import AdminUpdate from './AdminProduct/AdminUpdate'
@@ -9,6 +8,7 @@ import AdminOrder from './AdminOrder/AdminOrder'
 import AdminUser from './AdminUser/AdminUser';
 import AppChat from './AppChat/AppChat'
 import ReviewProduct from './AdminProduct/ReviewProduct/ReviewProduct';
+import DataFilterProduct from './AdminProduct/DataFilterProduct/DataFilterProduct';
 
 function Routes(props) {
     return (
@@ -17,8 +17,9 @@ function Routes(props) {
             <Route path='/admin/customer' component={AdminUser}/>
 
             <Route path='/admin/product/create' component={AdminCreate}/>
+            <Route path='/admin/product/update/info' component={DataFilterProduct}/>
             <Route path='/admin/product/update/:id' component={AdminUpdate}/>
-            <Route path='/admin/product/reviewProduct' component={ReviewProduct}/>
+            <Route path='/admin/product/reviewProduct/:id' component={ReviewProduct}/>
             <Route path='/admin/product' component={AdminProduct}/>
 
             <Route path='/admin/order' component={AdminOrder}/>

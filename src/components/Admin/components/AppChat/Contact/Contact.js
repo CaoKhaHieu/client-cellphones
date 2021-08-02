@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import axios from 'axios'
 import {useDispatch, useSelector} from 'react-redux'
-import { getAllConversationList, SeenConversation, showConversation, updateIdConversation, updateLastMessageConversation } from '../../../../../actions/ChatAction';
+import { getAllConversationList, showConversation, updateIdConversation, updateLastMessageConversation } from '../../../../../actions/ChatAction';
 import ListConversation from './ListConversation';
 import io from 'socket.io-client'
 
@@ -52,9 +51,6 @@ function Contact(props) {
     }
     return (
         <div className="contact">
-            <div className="contact-top">
-                <h2>Chat</h2>
-            </div>
             {
                 conversationList ? (<ListConversation conversationList={conversationList} onConversationClick={onConversationClick}></ListConversation>) : ''
             }

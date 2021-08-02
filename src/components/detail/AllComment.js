@@ -1,8 +1,11 @@
-import React, { useState, createElement, useEffect } from "react";
-import { Comment, Avatar, Form, Button, List, Input, Col, Tooltip } from "antd";
-import { WechatOutlined } from "@ant-design/icons";
+import React, { useState } from "react";
+import { Col } from "antd";
+import { WechatOutlined, PushpinOutlined, LockOutlined  } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
-import { repCommentProduct } from "../../actions/ProductAction";
+import {
+  pinCommentProduct,
+  repCommentProduct,
+} from "../../actions/ProductAction";
 import { useParams } from "react-router-dom";
 import AllRepComment from "./AllRepComment";
 import { getFirstCharacterUser } from "../../untils";
@@ -10,6 +13,7 @@ import { getFirstCharacterUser } from "../../untils";
 function AllComment(props) {
   const { id } = useParams();
   const { allComment } = props;
+  console.log("allCommet: ", allComment);
   const dispatch = useDispatch();
   const [repCmt, setRepCmt] = useState({ key: "", status: false });
   const { userInfo } = useSelector((state) => state.userSignin);
@@ -21,6 +25,7 @@ function AllComment(props) {
     if (userInfo) {
       const comment = {
         idComment: repCmt.key,
+        isAdmin: userInfo.isAdmin,
         content: repValue,
         nameUser: userInfo.name,
       };
@@ -30,16 +35,61 @@ function AllComment(props) {
       setRepCmt({ key: "", status: false });
     } else alert("Đăng nhập đi bạn eiii");
   };
+
+  const PinComment = (comment) => {
+    const UpdateComment = { ...comment, status: "pin" };
+    console.log(UpdateComment);
+
+    dispatch(pinCommentProduct(id, UpdateComment));
+  };
+
   return (
     <div class="all-comment">
       {allComment.map((comment) => (
         <>
           <Col span={18} style={{ marginTop: "1rem" }} xs={24} sm={24} md={18}>
             <div className="all-comment-info">
-              <div className="all-comment-info-name">
-                {getFirstCharacterUser(comment.author)}
+              <div style={{ display: "flex" }}>
+                {comment.isAdmin ? (
+                  <div className="all-comment-info-name admin">
+                    <img src="https://cellphones.com.vn/skin/frontend/default/cpsdesktop/images/media/logo.png"></img>
+                  </div>
+                ) : (
+                  <div className="all-comment-info-name">
+                    {getFirstCharacterUser(comment.author)}
+                  </div>
+                )}
+                {comment.isAdmin ? (
+                  <strong>
+                    {comment.author} <span>QTV</span>
+                  </strong>
+                ) : (
+                  <strong>{comment.author}</strong>
+                )}
               </div>
-              <strong>{comment.author}</strong>
+
+              {userInfo.isAdmin ? (
+                <div className="comment-status">
+                  <div
+                    className="comment-status-pin"
+                    onClick={() => PinComment(comment)}
+                  >
+                    {
+                      comment.status === 'pin' ? (<LockOutlined></LockOutlined>) : (<PushpinOutlined></PushpinOutlined>) 
+                    }
+                  </div>
+                </div>
+              ) : (
+                <div className="comment-status">
+                  <div
+                    className="comment-status-pin"
+                  >
+                    {
+                      comment.status === 'pin' ? (<PushpinOutlined></PushpinOutlined>) : ''
+                    }
+                  </div>
+                </div>
+              )}
             </div>
             <div className="all-comment-content">{comment.content}</div>
             <div className="all-comment-more">
@@ -84,6 +134,7 @@ function AllComment(props) {
                   onChange={(e) => setRepValue(e.target.value)}
                 ></textarea>
               </div>
+
               <div className="comment-send">
                 <button onClick={() => handleRepComment()}>Trả lời</button>
               </div>

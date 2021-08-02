@@ -1,41 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 import ListProduct from './ListProduct'
 import './Sale.css'
-import {handlePercentDiscount, SortProductByDiscount} from '../../untils/index'
+import {handlePercentDiscount} from '../../untils/index'
 import { useDispatch, useSelector } from 'react-redux';
-import { ascendingProduct, getAllProduct, descendingProduct, filterProductByType } from '../../actions/ProductAction';
-import { useHistory } from 'react-router';
+import { getAllProduct} from '../../actions/ProductAction';
+
 import FilterProduct from './FilterProduct';
+import SortByPrice from './SortByPrice/SortByPrice';
 
 
 function AllProduct(props) {
     const dispatch = useDispatch()
-    const [check, setCheck] = useState()
+    
     const product = useSelector(state => state.allProduct.product)
+
     useEffect(() => {
         dispatch(getAllProduct())
+
+        return () => {
+            return []
+        }
     }, [dispatch])
 
-    const ThapDenCao = () => {
-        dispatch(descendingProduct())
-    }
-    const CaoDenThap = () => {
-        dispatch(ascendingProduct())
-    }
-    const handleCheckBox = (type) => {
-        console.log(type)
-    }
     return (
         <section id="hotsale iphone">
             <div className="hotsale">
-                <div className="button">
-                    <button className="thapdencao" onClick={() => ThapDenCao(product)}> Thấp đến cao </button>
-                    <button className="caodenthap" onClick={() => CaoDenThap(product)}> Cao đến thấp </button>
-                </div>
                 <FilterProduct></FilterProduct>
+                <SortByPrice></SortByPrice>
                 {
-                   product ? (<ListProduct HotSaleProducts={handlePercentDiscount(product)}></ListProduct>) : (<h2>error</h2>)
+                   product && product.length > 0 ? (<ListProduct HotSaleProducts={handlePercentDiscount(product)}></ListProduct>) : (<span>Không có sản phẩm</span>)
                 }
             </div>
         </section>

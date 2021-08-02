@@ -1,13 +1,35 @@
+#appchat{
+    position: fixed;
+    width: 80%;
+}
+#appchat > span{
+    display: flex;
+    padding: 1rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #6b6b6b;
+}
 .appchat{
     display: flex;
     background: white;
     margin-left:  1rem;
+
+}
+.chatuser{
+    z-index: 1111;
 }
 .contact{
+    position: fixed;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: white;
+
     padding: 1rem;
     width: 280px;
     border: 1px solid #eee;
+
 }
+
 .contact-top h2{
     margin: 0;
     display: flex;
@@ -55,13 +77,14 @@
 
 .chat{
     flex-grow: 1;
-
+    margin-left: 280px;
 }
 .ad-chatuser{
     display: flex;
-    height: 100vh;
     flex-direction: column;
     border: 1px solid #eee;
+
+    height: 92vh;
 }
 .ad-chatuser-user{
     text-align: left;

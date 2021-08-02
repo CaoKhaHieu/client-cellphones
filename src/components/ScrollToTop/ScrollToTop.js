@@ -1,38 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import './ScrollToTop.css'
 import { UpOutlined } from '@ant-design/icons';
-import * as Scroll from 'react-scroll'; 
-import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { BackTop } from "antd";
+
 
 function ScrollToTop(props) {
-    const [heightPage, setHeightPage] = useState(0)
-    const handleScroll = () => {
-        setHeightPage(window.pageYOffset)
-    }
-    
-    const scrollToTop = () => {
-        scroll.scrollToTop(500, 'duration');
-    }
+  const [heightPage, setHeightPage] = useState(0);
+  const handleScroll = () => {
+    setHeightPage(window.pageYOffset);
+  };
 
-    useEffect(() => {
-        window.addEventListener('scroll', handleScroll);
-    }, [])
-    
-    return (
-        <section className="scroll">
-            
-            {
-                heightPage > 1000 ? (
-                    <Link duration={200} onClick={() => scrollToTop()}>
-                        <div className="scrolltotop">
-                            <UpOutlined></UpOutlined>
-                        </div>
-                    </Link>
-                    ) : ''
-            }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
-        </section>
-    );
+  return (
+    <section className="scroll">
+      {heightPage > 1000 ? (
+        <div>
+          <BackTop
+            className="scrolltotop"
+            style={{ color: "white", right: "85px" }}
+          >
+            <UpOutlined></UpOutlined>
+          </BackTop>
+        </div>
+      ) : (
+        ""
+      )}
+    </section>
+  );
 }
 
 export default ScrollToTop;

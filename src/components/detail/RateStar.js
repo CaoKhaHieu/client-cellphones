@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {useSelector, useDispatch} from 'react-redux'
-import {Rate, Button, Form, Input, Space, Row, Col, Divider, Progress} from 'antd'
+import {Rate, Row, Col, Divider, Progress} from 'antd'
 import {useParams} from 'react-router-dom'
 import { reviewProduct } from '../../actions/ProductAction';
 import { StarOutlined } from '@ant-design/icons';
@@ -18,16 +18,17 @@ function RateStar(props) {
     const product = useSelector(state => state.getProductById.product)
     
     const countReview = product.reviews.length
-    const averageRate = product.reviews.reduce((a,c) => a + c.star, 0) / countReview
+    let averageRate = Math.round(product.reviews.reduce((a,c) => a + c.star, 0) / countReview)
+
     if(userInfo) {
         var existsUser = product.reviews.find(x => x.name == userInfo.name)
     }
     
-    const fiveStar = product.reviews.filter(x => x.star === 5).length / countReview * 100
-    const fourStar = product.reviews.filter(x => x.star === 4).length / countReview * 100
-    const threeStar = product.reviews.filter(x => x.star === 3).length / countReview * 100
-    const twoStar = product.reviews.filter(x => x.star === 2).length / countReview * 100
-    const oneStar = product.reviews.filter(x => x.star === 1).length / countReview * 100
+    const fiveStar = Math.round(product.reviews.filter(x => x.star === 5).length / countReview * 100)
+    const fourStar = Math.round(product.reviews.filter(x => x.star === 4).length / countReview * 100)
+    const threeStar = Math.round(product.reviews.filter(x => x.star === 3).length / countReview * 100)
+    const twoStar = Math.round(product.reviews.filter(x => x.star === 2).length / countReview * 100)
+    const oneStar = Math.round(product.reviews.filter(x => x.star === 1).length / countReview * 100)
 
     const onFinish = (value) => {
         const review ={
@@ -61,7 +62,7 @@ function RateStar(props) {
                         <Col span={7} style={{display:'flex', alignItems:'center', justifyContent:'center', flexDirection:'column'}}>
                             <p className="star-average" style={{textTransform:'uppercase', fontSize:'18px'}}>sao trung bình</p>
                             <p className="star-average-num" style={{marginBottom: 0, fontSize: '25px', color: 'orange'}}>
-                                {averageRate}
+                                {isNaN(averageRate) ? 0 : averageRate}
                                 <StarOutlined style={{fontSize: '23px', color: 'orange', fontWeight: 'bolder', paddingBottom: '3px'}}></StarOutlined>
                             </p>
                         </Col>
