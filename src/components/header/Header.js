@@ -23,7 +23,6 @@ function Header(props) {
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo, error } = userSignin;
-  console.log(userInfo);
   const [search, setSearch] = useState("");
   const cartItems = useSelector((state) => state.cart.cartItems);
   const amount = cartItems.reduce((a, b) => a + b.qty, 0);
@@ -31,7 +30,6 @@ function Header(props) {
   const [menu, setMenu] = useState(true);
 
   const handleSignout = () => {
-    console.log("dang xat");
     dispatch(SignoutUser());
   };
 

@@ -12,7 +12,6 @@ function Contact(props) {
     const idConversation = useSelector(state => state.chat.idConversation)
 
     if(conversationList){
-        console.log(conversationList[0]._id)
     }
     useEffect(() => {
         dispatch(getAllConversationList())
@@ -25,7 +24,6 @@ function Contact(props) {
     }, [conversationList])
 
     // useEffect(() => {
-    //     console.log('seen conversation')
     //     dispatch(SeenConversation(idConversation))
     // }, [idConversation])
 
@@ -33,7 +31,6 @@ function Contact(props) {
         socket = io(ENDPOINT)
 
         socket.on('lastMessage', async data => {
-            console.log(data)
             await dispatch(updateLastMessageConversation(data))
             dispatch(getAllConversationList())
         })
@@ -46,7 +43,6 @@ function Contact(props) {
     }, [])
 
     const onConversationClick = (conversation) => {
-        console.log('conversation: click', conversation._id)
         dispatch(updateIdConversation(conversation))
     }
     return (

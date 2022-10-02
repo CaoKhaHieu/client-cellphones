@@ -14,7 +14,6 @@ export default function FilterMenu() {
   const [dataFilter, setDataFilter] = useState({});
   const filterMenuList = useSelector(state => state.selectList.List)
   const { List} = useSelector(state => state.allTypeProduct)
-  console.log(List)
 
   useEffect(() => {
     dispatch(filterProductByRandomField(dataFilter));

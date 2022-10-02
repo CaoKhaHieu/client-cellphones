@@ -19,7 +19,6 @@ export const ChatReducer = (state = {}, action) => {
         case 'SHOW_CONVERSATION':{
             const arr = [...state.conversationList]
             const index = arr.findIndex(item => item.idUser === action.payload.idUser)
-            console.log('index',index)
             const newConversation = action.payload
             if(index < 0){
                 arr.push(newConversation)
@@ -31,7 +30,6 @@ export const ChatReducer = (state = {}, action) => {
         case 'SEEN_CONVERSATION':{
             const arr = [...state.conversationList]
             const index = arr.findIndex(item => item.idUser === action.payload.idUser)
-            console.log('index',index)
             const newConversation = action.payload
             if(index < 0){
                 arr.push(newConversation)

@@ -19,7 +19,6 @@ function Order(props) {
   const allProvince = useSelector((state) => state.address.province);
   const allDistrict = useSelector((state) => state.address.district);
   const allWard = useSelector((state) => state.address.ward);
-  console.log('all ward', allWard)
 
   const [listProvince, setListProvince] = useState(false);
   const [listDistrict, setListDistrict] = useState(false);
@@ -44,7 +43,6 @@ function Order(props) {
   };
 
   const cartItems = useSelector((state) => state.cart.cartItems);
-  console.log(cartItems);
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.qty * item.salePrice,
     0
@@ -71,8 +69,6 @@ function Order(props) {
       name: userInfo.name,
       user: userInfo,
     };
-
-    console.log(Order)
 
     await dispatch(OrderInfo(Order));
   };

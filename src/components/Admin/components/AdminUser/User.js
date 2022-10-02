@@ -5,10 +5,8 @@ import { DeleteOutlined} from '@ant-design/icons';
 
 function User(props) {
     const {user, number} = props
-    console.log(number)
     const dispatch = useDispatch()
     const handleDeleteUser = async (user) => {
-        console.log(user)
         await dispatch(deleteUser(user._id))
         dispatch(getAllUser())
     }

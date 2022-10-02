@@ -7,7 +7,6 @@ import { deleteTypeProduct, getAllTypeProduct } from "../../../../../actions/Lis
 export default function AllTypeProduct() {
   const dispatch = useDispatch();
   const { List } = useSelector((state) => state.allTypeProduct);
-  console.log(List);
 
   useEffect(() => {
     dispatch(getAllTypeProduct());

@@ -18,8 +18,9 @@ export default function ReviewProduct() {
   const log = () => {
     if (editorRef.current) {
       const blogContent = String(editorRef.current.getContent());
-
-      dispatch(BlogProduct(id, { blogContent }));
+      dispatch(BlogProduct(id, { blogContent }, () => {
+        alert('Add review product success');
+      }));
     }
   };
 

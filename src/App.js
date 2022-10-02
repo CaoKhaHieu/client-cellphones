@@ -70,6 +70,9 @@ function App() {
           <AdminPage></AdminPage>
         </Route>
 
+        {/* <Route path='*'>
+          <HomePage></HomePage>
+        </Route> */}
 
       </Router>
     </div>

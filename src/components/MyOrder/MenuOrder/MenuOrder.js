@@ -9,7 +9,6 @@ import {
 function MenuOrder(props) {
   const dispatch = useDispatch()
   const location = useLocation()
-  console.log(location)
 
   const { userInfo } = useSelector((state) => state.userSignin);
   const { myOrdersPendding } = useSelector((state) => state.orderByUser);

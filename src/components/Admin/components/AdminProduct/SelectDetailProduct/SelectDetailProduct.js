@@ -8,7 +8,6 @@ export default function SelectDetailProduct() {
   const [selected, setSelected] = useState("");
 
   const handleChange = (selectedOption) => {
-    console.log(selectedOption);
     setSelected(selectedOption.value);
   };
 

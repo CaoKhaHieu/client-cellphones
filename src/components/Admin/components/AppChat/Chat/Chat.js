@@ -17,9 +17,8 @@ function Chat(props) {
     if (!idConversation) return;
     const getAllMessageByConversation = async () => {
       const { data } = await axios.get(
-        `http://localhost:5000/chat/message?idConversation=${idConversation}`
+        `http://localhost:4000/chat/message?idConversation=${idConversation}`
       );
-      console.log(data);
       setMessages(data.messageList);
     };
 
@@ -27,13 +26,11 @@ function Chat(props) {
   }, [idConversation]);
 
   useEffect(() => {
-    console.log('csndcasucaodnoa')
     socket = io(ENDPOINT);
 
     socket.emit("admin_join_conversation", idConversation);
 
     socket.on("newMessage", (message) => {
-      console.log(message)
       setMessages([...messages, message]);
     });
 
@@ -59,10 +56,9 @@ function Chat(props) {
       idConversation,
     };
     const { data } = await axios.post(
-      "http://localhost:5000/chat/save",
+      "http://localhost:4000/chat/save",
       payload
     );
-    console.log(data);
     socket.emit('chat', data);
   };
   return (

@@ -14,10 +14,9 @@ function Xiaomi(props) {
     useEffect(() => {
         async function FetchApi(){
             try {
-                const {data} = await axios.get(`http://localhost:5000/products/${name}`)
+                const {data} = await axios.get(`http://localhost:4000/products/${name}`)
                 setHotXiaomi(data)
             } catch (error) {
-                console.log(error)
             }
         }
         FetchApi()

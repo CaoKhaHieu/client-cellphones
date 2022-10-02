@@ -11,9 +11,8 @@ export const createOrder = (order) => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    console.log(order);
     const { data } = await axios.post(
-      "http://localhost:5000/order/create",
+      "http://localhost:4000/order/create",
       order,
       {
         headers: {
@@ -25,7 +24,6 @@ export const createOrder = (order) => async (dispatch, getState) => {
     dispatch({ type: "CART_EMTY" });
     localStorage.removeItem("cartItems");
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -36,7 +34,7 @@ export const updateOrder = (orderId, order) => async (dispatch, getState) => {
     } = getState();
     
     const { data } = await axios.post(
-      `http://localhost:5000/order/update/${orderId}`,
+      `http://localhost:4000/order/update/${orderId}`,
       order,
       {
         headers: {
@@ -46,18 +44,16 @@ export const updateOrder = (orderId, order) => async (dispatch, getState) => {
     );
     dispatch({ type: "ORDER_UPDATE-SUCCESS", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
 export const cancelOrder = (orderId) => async (dispatch, getState) => {
   try {
     const { data } = await axios.post(
-      `http://localhost:5000/order/cancel/${orderId}`,
+      `http://localhost:4000/order/cancel/${orderId}`,
     );
     dispatch({ type: "CANCEL_ORDER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -66,14 +62,13 @@ export const getAllOrder = () => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/`, {
+    const { data } = await axios.get(`http://localhost:4000/order/`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
     dispatch({ type: "GET_ALL_ORDER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -86,14 +81,13 @@ export const RemoveAllOrder = () => async (dispatch, getState) => {
 //     const {
 //       userSignin: { userInfo },
 //     } = getState();
-//     const { data } = await axios.get(`http://localhost:5000/order/orderPaypal`, {
+//     const { data } = await axios.get(`http://localhost:4000/order/orderPaypal`, {
 //       headers: {
 //         Authorization: `Bearer ${userInfo.token}`,
 //       },
 //     });
 //     dispatch({ type: "GET_ALL_ORDER_PAYPAL", payload: data });
 //   } catch (error) {
-//     console.log(error);
 //   }
 // };
 
@@ -103,7 +97,7 @@ export const GetAllOrderPendding = () => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     const { data } = await axios.get(
-      `http://localhost:5000/order/orderPendding`,
+      `http://localhost:4000/order/orderPendding`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -112,7 +106,6 @@ export const GetAllOrderPendding = () => async (dispatch, getState) => {
     );
     dispatch({ type: "GET_ALL_ORDER_PENDDING", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -122,7 +115,7 @@ export const GetAllOrderShipping = () => async (dispatch, getState) => {
       userSignin: { userInfo },
     } = getState();
     const { data } = await axios.get(
-      `http://localhost:5000/order/orderShipping`,
+      `http://localhost:4000/order/orderShipping`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -131,7 +124,6 @@ export const GetAllOrderShipping = () => async (dispatch, getState) => {
     );
     dispatch({ type: "GET_ALL_ORDER_SHIPPING", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -140,14 +132,13 @@ export const GetAllOrderPaid = () => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/orderPaid`, {
+    const { data } = await axios.get(`http://localhost:4000/order/orderPaid`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
     dispatch({ type: "GET_ALL_ORDER_PAID", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -156,9 +147,8 @@ export const deleteOrder = (orderId) => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    console.log("callapi delete");
     const { data } = await axios.delete(
-      `http://localhost:5000/order/delete/${orderId}`,
+      `http://localhost:4000/order/delete/${orderId}`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -167,7 +157,6 @@ export const deleteOrder = (orderId) => async (dispatch, getState) => {
     );
     dispatch({ type: "DELETE_ORDER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -178,7 +167,7 @@ export const ShippingOrder = (orderId) => async (dispatch, getState) => {
     } = getState();
 
     const { data } = await axios.put(
-      `http://localhost:5000/order/shipping/${orderId}`,
+      `http://localhost:4000/order/shipping/${orderId}`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -187,7 +176,6 @@ export const ShippingOrder = (orderId) => async (dispatch, getState) => {
     );
     dispatch({ type: "SHIPPING_ORDER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -198,7 +186,7 @@ export const PaidOrder = (orderId) => async (dispatch, getState) => {
     } = getState();
 
     const { data } = await axios.put(
-      `http://localhost:5000/order/paid/${orderId}`,
+      `http://localhost:4000/order/paid/${orderId}`,
       {
         headers: {
           Authorization: `Bearer ${userInfo.token}`,
@@ -207,7 +195,6 @@ export const PaidOrder = (orderId) => async (dispatch, getState) => {
     );
     dispatch({ type: "PAID_ORDER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -219,7 +206,6 @@ export const GetAllProvince = () => async (dispatch, getState) => {
     );
     dispatch({ type: "GET_ALL_PROVINCE", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -237,10 +223,8 @@ export const GetAllDistrict = (provinceId) => async (dispatch, getState) => {
       `https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/district`,
       newConfig
     );
-    console.log("all distric: ", data);
     dispatch({ type: "GET_ALL_DISTRICT", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -258,10 +242,8 @@ export const GetAllWard = (districtId) => async (dispatch, getState) => {
       `https://dev-online-gateway.ghn.vn/shiip/public-api/master-data/ward?${districtId}`,
       newConfig
     );
-    console.log('all ửad: ', data)
     dispatch({ type: "GET_ALL_WARD", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -272,14 +254,13 @@ export const getOrderByUser = (idUser) => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/${idUser}`, {
+    const { data } = await axios.get(`http://localhost:4000/order/${idUser}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
     dispatch({ type: "GET_ORDER_BY_USER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -290,14 +271,13 @@ export const getOrderPenddingByUser = (idUser) => async (dispatch, getState) => 
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/orderPendding/${idUser}`, {
+    const { data } = await axios.get(`http://localhost:4000/order/orderPendding/${idUser}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
     dispatch({ type: "GET_ORDER_PENDDING_BY_USER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -306,14 +286,13 @@ export const getOrderShippingByUser = (idUser) => async (dispatch, getState) => 
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/orderShipping/${idUser}`, {
+    const { data } = await axios.get(`http://localhost:4000/order/orderShipping/${idUser}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
     dispatch({ type: "GET_ORDER_SHIPPING_BY_USER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
@@ -322,25 +301,23 @@ export const getOrderPaidByUser = (idUser) => async (dispatch, getState) => {
     const {
       userSignin: { userInfo },
     } = getState();
-    const { data } = await axios.get(`http://localhost:5000/order/orderPaid/${idUser}`, {
+    const { data } = await axios.get(`http://localhost:4000/order/orderPaid/${idUser}`, {
       headers: {
         Authorization: `Bearer ${userInfo.token}`,
       },
     });
     dispatch({ type: "GET_ORDER_PAID_BY_USER", payload: data });
   } catch (error) {
-    console.log(error);
   }
 };
 
 export const payOrder = (order, paymentResult) => async (dispatch, getState) => {
-  console.log(order)
     const {
       userSignin: { userInfo },
     } = getState();
     try {
       const { data } = axios.put(
-        `http://localhost:5000/order/pay/${order._id}`,
+        `http://localhost:4000/order/pay/${order._id}`,
         paymentResult,
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },

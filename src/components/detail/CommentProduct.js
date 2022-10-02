@@ -21,7 +21,6 @@ function CommentProduct(props) {
         content: value,
         byUser: userInfo._id,
       }
-      console.log(comment)
       dispatch(commentProduct(id, comment))
       setValue('')
     }

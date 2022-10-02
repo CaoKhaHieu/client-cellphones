@@ -10,7 +10,7 @@ import { LineOutlined } from '@ant-design/icons';
 let socket;
 
 function AppChat(props) {
-  const ENDPOINT = "http://localhost:5000";
+  const ENDPOINT = "http://localhost:4000";
   const [messages, setMessages] = useState([]);
   const [openChat, setOpenChat] = useState(false)
   const { userInfo } = useSelector((state) => state.userSignin)
@@ -18,7 +18,7 @@ function AppChat(props) {
   useEffect(() => {
     const getAllMessageByConversation = async () => {
       const {data}  = await axios.get(
-        `http://localhost:5000/chat/message?idUser=${userInfo._id}`
+        `http://localhost:4000/chat/message?idUser=${userInfo._id}`
       );
       setMessages(data.messageList);
     }
@@ -33,7 +33,6 @@ function AppChat(props) {
     socket.emit('join_conversation', userInfo._id);
     //setup response
     socket.on('newMessage', (message) => {
-      console.log([...messages])
       setMessages([...messages, message]);
     });
 
@@ -53,13 +52,10 @@ function AppChat(props) {
   })
 
   const handleChatFormSubmit = async (message) => {
-    console.log(message)
     const sender = userInfo.name;
-    console.log(messages.length)
 
     //emit create conversation and chat
     if (messages.length === 0) {
-      console.log('create')
       socket.emit('create_conversation', userInfo);
 
       socket.on('response_room', async (conversation) => {
@@ -68,23 +64,18 @@ function AppChat(props) {
           message,
           idConversation: conversation._id,
         };
-        console.log(payload)
-        const {data} = await axios.post('http://localhost:5000/chat/save', payload);
-        console.log(data)
+        const {data} = await axios.post('http://localhost:4000/chat/save', payload);
         socket.emit('chat', data);
       });
     } else {
       const idConversation = messages[0].idConversation._id || messages[0].idConversation;
-      console.log(idConversation)
       // request save message
       const payload = {
         sender,
         message,
         idConversation,
       };
-      console.log(payload, 'sdbhuca')
-      const {data} = await axios.post('http://localhost:5000/chat/save', payload)
-      console.log(data)
+      const {data} = await axios.post('http://localhost:4000/chat/save', payload)
       socket.emit('chat', data);
     } 
   };

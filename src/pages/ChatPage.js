@@ -28,7 +28,6 @@ function ChatPage(props) {
         const reader = new FileReader();
         reader.readAsDataURL(selectedFile);
         reader.onloadend = () => {
-            console.log(reader.result)
             uploadImage(reader.result);
         };
         reader.onerror = () => {
@@ -39,7 +38,7 @@ function ChatPage(props) {
 
     const uploadImage = async (base64EncodedImage) => {
         try {
-            await fetch('http://localhost:5000/api/upload', {
+            await fetch('http://localhost:4000/api/upload', {
                 method: 'POST',
                 body: JSON.stringify({ data: base64EncodedImage }),
                 headers: { 'Content-Type': 'application/json' },

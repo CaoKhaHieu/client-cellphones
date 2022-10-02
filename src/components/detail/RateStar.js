@@ -42,7 +42,6 @@ function RateStar(props) {
         setShowRate(false)
     }
     const setRate = (value) => {
-        console.log(value)
         setStar(value)
         setShowEvalute(true)
     }

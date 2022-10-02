@@ -42,17 +42,14 @@ export default function FilterMenu() {
   };
 
   const handleRemoveOption = (option, index) => {
-    console.log(option, index);
     let newChooseSelectItem = { ...chooseSelectItem };
     const newOptions = newChooseSelectItem.options.filter(
       (item, indexItem) => indexItem !== index
     );
-    console.log(newOptions);
     setChooseSelectItem({ ...chooseSelectItem, options: newOptions });
   };
 
   const handleChangeValueOption = (option, index, e) => {
-    console.log(option, index, e);
     const content = e.target.value;
     let newChooseSelectItem = { ...chooseSelectItem };
     newChooseSelectItem.options[index] = content;
@@ -80,7 +77,6 @@ export default function FilterMenu() {
   );
 
   const removeSelectItem = async (item) => {
-    console.log(item)
     await dispatch(deleteSelectListItemById(item._id))
     dispatch(getAllSelectList())
   }

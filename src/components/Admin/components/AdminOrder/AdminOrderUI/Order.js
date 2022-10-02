@@ -32,7 +32,6 @@ function Order(props) {
   };
 
   const handlePrintOrder = (order) => {
-    console.log(order);
     dispatch(PrintOrderGhn(order._id));
   };
 
@@ -120,7 +119,7 @@ function Order(props) {
               </>) : ''
             }
 
-            {status === "shipping" ? (
+            {/* {status === "shipping" ? (
               <button
                 className="shipping"
                 onClick={() => handlePrintOrder(order)}
@@ -129,7 +128,7 @@ function Order(props) {
               </button>
             ) : (
               ""
-            )}
+            )} */}
           </div>
         </div>
       </div>

@@ -48,7 +48,6 @@ function PenddingOrder(props) {
   );
 
   const handleCancelOrder = async (item) => {
-    console.log(item);
     await dispatch(cancelOrder(item._id));
     dispatch(getOrderPenddingByUser(userInfo._id));
   };

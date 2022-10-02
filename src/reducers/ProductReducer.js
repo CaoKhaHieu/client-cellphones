@@ -68,7 +68,6 @@ export const getAllProductReducer = (state = initialState, action) => {
         }
         
         case 'PAGINATION_PRODUCT':
-            console.log(action.payload)
             return {...state, product: action.payload}
 
         default:

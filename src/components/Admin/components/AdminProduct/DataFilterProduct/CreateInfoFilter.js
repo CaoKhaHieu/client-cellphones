@@ -44,7 +44,6 @@ export default function CreateInfoFilter() {
   const onSubmit = async (data, e) => {
     const options = createArrayOption([...addOption]);
     const newData = { ...data, options };
-    console.log(newData);
     await dispatch(CreateSelectListItem(newData));
     setAddOption([]);
     e.target.reset();

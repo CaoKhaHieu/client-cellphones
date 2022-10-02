@@ -2,7 +2,6 @@ import React from 'react';
 
 function ListMessage(props) {
     const {messages, user} = props
-    console.log(messages)
     return (
         <div className="ad-chatuser-listmessage">
             { 

@@ -2,11 +2,9 @@ import axios from "axios"
 
 export const getAllConversationList = (product) => async (dispatch) => {
     try {
-        const {data} = await axios.get('http://localhost:5000/chat')
-        console.log(data)
+        const {data} = await axios.get('http://localhost:4000/chat')
         dispatch({type: 'GET_ALL_CONVERSATION', payload: data})
     } catch (error) {
-        console.log(error)
     }
 }
 
@@ -23,6 +21,5 @@ export const showConversation = (conversation) => async (dispatch) => {
 }
 
 export const SeenConversation = (idConversation) => async (dispatch) => {
-    console.log('seen:', idConversation)
     dispatch({type: 'SEEN_CONVERSATION', payload: idConversation})
 }

@@ -51,7 +51,7 @@ export default function Payment() {
   useEffect(() => {
     const addPayPalScript = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/config/paypal"
+        "http://localhost:4000/api/config/paypal"
       );
       const script = document.createElement("script");
       script.type = "text/javascript";

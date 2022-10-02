@@ -15,7 +15,6 @@ function FilterProduct(props) {
   const FilterProductByPrice =  (a, b) => {
     let startPrice = parseInt(a);
     let endPrice = parseInt(b);
-    console.log(formatPrice(startPrice));
     dispatch(filterProductByPrice(startPrice, endPrice));
   };
 

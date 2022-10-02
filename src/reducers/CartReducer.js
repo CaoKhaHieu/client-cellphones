@@ -3,9 +3,7 @@ export const CartReducer = (state = {cartItems: []}, action) => {
     switch (action.type) {
         case 'ADD_TO_CART': {
             let newList = [...state.cartItems]
-            console.log(newList)
             const exists = newList.find(item => item._id === action.payload._id)
-            console.log(exists)
             if (exists) {
                 newList = newList.map((item) => item._id === action.payload._id ? { ...exists, qty: exists.qty + 1 } : item)
             }else{
@@ -26,9 +24,7 @@ export const CartReducer = (state = {cartItems: []}, action) => {
         
         case 'DELETE_TO_CART': {
             let newList = [...state.cartItems]
-            console.log(newList)
             const exists = newList.find(item => item._id === action.payload._id)
-            console.log(exists)
             if (exists.qty === 1) {
                 newList = newList.filter((item) => item._id !== exists._id)
             }else{

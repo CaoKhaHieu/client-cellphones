@@ -53,7 +53,6 @@ function Carousel(props) {
 
  
   const next = () =>  {
-    console.log(slider1)
     slider1.slickNext();
   }
   const previous = () => {

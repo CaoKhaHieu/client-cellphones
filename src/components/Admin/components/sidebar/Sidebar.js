@@ -22,8 +22,6 @@ function Sidebar(props) {
   }
 
   useEffect(() => {
-    console.log("get all order penddin");
-    
     const getNewOrder = () => {
       dispatch(GetAllOrderPendding());
     }
@@ -65,12 +63,12 @@ function Sidebar(props) {
               </div>
           </p>
         </Link>
-        <Link to="/admin/chat" className={location.pathname === '/admin/chat' ? 'sidebar-list-item active': 'sidebar-list-item'}>
+        {/* <Link to="/admin/chat" className={location.pathname === '/admin/chat' ? 'sidebar-list-item active': 'sidebar-list-item'}>
           <span>
             <WechatOutlined></WechatOutlined>
           </span>
           <p>Chat</p>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

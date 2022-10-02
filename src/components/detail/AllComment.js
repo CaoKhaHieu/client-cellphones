@@ -13,7 +13,6 @@ import { getFirstCharacterUser } from "../../untils";
 function AllComment(props) {
   const { id } = useParams();
   const { allComment } = props;
-  console.log("allCommet: ", allComment);
   const dispatch = useDispatch();
   const [repCmt, setRepCmt] = useState({ key: "", status: false });
   const { userInfo } = useSelector((state) => state.userSignin);
@@ -29,7 +28,6 @@ function AllComment(props) {
         content: repValue,
         nameUser: userInfo.name,
       };
-      console.log(comment);
       dispatch(repCommentProduct(id, comment));
       setRepValue("");
       setRepCmt({ key: "", status: false });
@@ -38,8 +36,6 @@ function AllComment(props) {
 
   const PinComment = (comment) => {
     const UpdateComment = { ...comment, status: "pin" };
-    console.log(UpdateComment);
-
     dispatch(pinCommentProduct(id, UpdateComment));
   };
 
