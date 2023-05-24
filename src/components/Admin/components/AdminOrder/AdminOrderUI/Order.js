@@ -25,6 +25,7 @@ function Order(props) {
   } = order;
 
   const handleShippingOrder = async (order) => {
+    console.log('handleShippingOrder')
     await dispatch(createOrderGhn(order._id)); // create order in giaohangnhanh
     await dispatch(ShippingOrder(order._id));
 
